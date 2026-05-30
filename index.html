@@ -6,7 +6,567 @@
 
   <title>My 90 Seconds — K-pop Video Call Fansign Prep | Practice Your Fancall</title>
   <meta name="description" content="Practice your K-pop video call fansign in Korean — without freezing. Free 90-second simulation with real Korean phrases, romanization, and idol reactions. Built by fans, for the 90 seconds that mattered." />
+  <meta name="keywords" conte<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My 90 Seconds — K-pop Video Call Fansign Prep | Practice Your Fancall</title>
+  <meta name="description" content="Practice your K-pop video call fansign in Korean — without freezing. Free 90-second simulation with real Korean phrases, romanization, and idol reactions. Built by fans, for the 90 seconds that mattered." />
   <meta name="keywords" content="video call fansign, kpop fancall, fansign korean phrases, how to prepare fansign, kpop video call, fancall tips, what to say to kpop idol, korean for kpop fans, fansign practice, idol video call, kpop fan call practice, learn korean fansign" />
+  <meta property="og:title" content="My 90 Seconds — For every fan who waited." />
+  <meta property="og:description" content="The K-pop video call fansign prep room. Practice your 90 seconds in Korean — so the next fan doesn't walk away wishing." />
+  <meta property="og:url" content="https://my90sec.app" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="My 90 Seconds — For every fan who waited." />
+  <meta name="twitter:description" content="The K-pop video call fansign prep room. Practice your 90 seconds without freezing." />
+  <link rel="canonical" href="https://my90sec.app" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0E0E0F; --bg2: #141313; --bg3: #1A1917;
+      --amber: #FFD84D; --amber-dim: rgba(255,216,77,0.12);
+      --amber-border: rgba(255,216,77,0.22); --amber-label: rgba(255,216,77,0.65);
+      --text: #F2F0F4; --text2: #B0AEB8; --text3: #7A7882;
+      --border: rgba(255,255,255,0.07); --card: rgba(255,255,255,0.03);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background: rgba(14,14,15,0.92); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); gap: 12px; }
+    .nav-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); flex-shrink: 0; }
+    .nav-logo span { color: var(--amber); }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+
+    /* LANG TOGGLE */
+    .lang-toggle { display: flex; gap: 2px; background: rgba(255,255,255,0.05); border: 0.5px solid var(--border); border-radius: 6px; padding: 3px; }
+    .lang-btn { background: none; border: none; color: var(--text3); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; padding: 4px 7px; border-radius: 4px; cursor: pointer; transition: all 0.15s; font-family: 'Manrope', sans-serif; }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active { background: var(--amber); color: #0E0E0F; }
+
+    .nav-cta { background: var(--amber); color: #0E0E0F; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 16px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; white-space: nowrap; }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* SHARED */
+    .section-label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber-label); margin-bottom: 16px; }
+    .amber-line { width: 28px; height: 1.5px; background: var(--amber); opacity: 0.5; margin-bottom: 20px; }
+
+    /* HERO */
+    .hero { padding: 80px 24px 72px; max-width: 680px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber-label); margin-bottom: 24px; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(36px, 8vw, 56px); font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; color: var(--text); margin-bottom: 8px; }
+    .hero-title .amber { color: var(--amber); }
+    .hero-sub { font-size: 14px; color: var(--text2); line-height: 1.75; margin-bottom: 36px; max-width: 480px; }
+    .hero-sub strong { color: var(--text); font-weight: 600; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 6px; background: var(--amber); color: #0E0E0F; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 24px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.88; }
+    .hero-trust { margin-top: 14px; font-size: 11px; color: var(--text3); }
+
+    /* MANIFESTO */
+    .manifesto { padding: 64px 24px; max-width: 680px; margin: 0 auto; border-top: 0.5px solid var(--border); }
+    .manifesto-text { font-family: 'Lora', serif; font-size: clamp(15px, 2.5vw, 18px); font-style: italic; color: var(--text2); line-height: 2; }
+    .manifesto-text .em { color: var(--text); font-style: normal; font-weight: 500; }
+    .manifesto-credit { margin-top: 32px; font-size: 11px; color: var(--text3); letter-spacing: 0.06em; }
+
+    /* APP PREVIEW */
+    .app-preview { padding: 64px 24px; border-top: 0.5px solid var(--border); max-width: 680px; margin: 0 auto; }
+    .app-preview-header { margin-bottom: 32px; }
+    .preview-title { font-family: 'Lora', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 500; line-height: 1.25; margin-bottom: 12px; }
+    .preview-sub { font-size: 13px; color: var(--text2); line-height: 1.75; max-width: 460px; }
+
+    /* PHONE MOCKUP */
+    .phone-mockup { background: #111010; border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.1); overflow: hidden; max-width: 320px; margin: 0 auto; }
+    .phone-topbar { background: #0E0E0F; padding: 12px 16px 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+    .phone-live { display: flex; align-items: center; gap: 5px; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; color: var(--amber); }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); animation: pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .phone-timer { font-size: 13px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+    .phone-idol-line { background: #131212; padding: 14px 16px; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
+    .idol-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-label); margin-bottom: 6px; }
+    .idol-says { border-left: 2px solid rgba(255,216,77,0.4); padding-left: 10px; }
+    .idol-korean { font-size: 14px; color: var(--text); font-weight: 500; margin-bottom: 2px; }
+    .idol-roman { font-size: 10px; color: var(--text3); font-style: italic; margin-bottom: 2px; }
+    .idol-trans { font-size: 10px; color: var(--text2); }
+    .phone-you-line { background: #0E0E0F; padding: 14px 16px; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
+    .you-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 6px; }
+    .you-korean { font-size: 14px; color: var(--text); font-weight: 500; margin-bottom: 2px; }
+    .you-roman { font-size: 10px; color: var(--text3); font-style: italic; }
+    .phone-mic { padding: 16px; display: flex; justify-content: center; background: #0E0E0F; }
+    .mic-btn { background: var(--amber); color: #0E0E0F; border: none; border-radius: 50px; padding: 10px 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: 'Manrope', sans-serif; }
+    .mic-icon { width: 14px; height: 14px; fill: #0E0E0F; }
+    .phone-hint { padding: 10px 16px 14px; background: var(--amber-dim); border-top: 0.5px solid var(--amber-border); }
+    .hint-label { font-size: 8px; color: var(--amber-label); letter-spacing: 0.08em; margin-bottom: 3px; font-weight: 600; text-transform: uppercase; }
+    .hint-text { font-size: 11px; color: var(--text2); }
+
+    /* HOW */
+    .how { padding: 64px 24px; border-top: 0.5px solid var(--border); max-width: 680px; margin: 0 auto; }
+    .how-title { font-family: 'Lora', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 500; margin-bottom: 36px; line-height: 1.25; }
+    .steps { display: flex; flex-direction: column; }
+    .step { display: flex; gap: 20px; padding: 24px 0; border-bottom: 0.5px solid var(--border); }
+    .step:last-child { border-bottom: none; }
+    .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--amber-dim); border: 0.5px solid var(--amber-border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--amber); flex-shrink: 0; margin-top: 2px; }
+    .step-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .step-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+    /* STORIES */
+    .stories { padding: 64px 24px; border-top: 0.5px solid var(--border); max-width: 680px; margin: 0 auto; }
+    .stories-title { font-family: 'Lora', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 500; margin-bottom: 8px; line-height: 1.25; }
+    .stories-sub { font-size: 13px; color: var(--text2); margin-bottom: 36px; }
+    .story-cards { display: flex; flex-direction: column; gap: 12px; }
+    .story-card { background: var(--card); border: 0.5px solid var(--border); border-left: 2px solid rgba(255,216,77,0.35); border-radius: 0 6px 6px 0; padding: 18px 20px; }
+    .story-quote { font-family: 'Lora', serif; font-size: 14px; font-style: italic; color: var(--text2); line-height: 1.7; margin-bottom: 10px; }
+    .story-name { font-size: 11px; color: var(--text3); font-weight: 600; letter-spacing: 0.04em; }
+
+    /* FINAL CTA */
+    .final-cta { padding: 80px 24px; border-top: 0.5px solid var(--border); max-width: 680px; margin: 0 auto; }
+    .final-title { font-family: 'Lora', serif; font-size: clamp(28px, 6vw, 44px); font-weight: 500; line-height: 1.15; margin-bottom: 16px; }
+    .final-title .amber { color: var(--amber); }
+    .final-sub { font-size: 14px; color: var(--text2); line-height: 1.75; margin-bottom: 36px; max-width: 460px; }
+
+    /* FOOTER */
+    footer { border-top: 0.5px solid var(--border); padding: 28px 24px; text-align: center; }
+    footer p { font-size: 11px; color: var(--text3); line-height: 1.8; }
+    footer a { color: var(--text3); text-decoration: none; }
+    footer a:hover { color: var(--amber); }
+
+    /* ANIMATION */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+    .hero-title   { animation: fadeUp 0.6s ease 0.1s both; }
+    .hero-sub     { animation: fadeUp 0.6s ease 0.2s both; }
+    .btn-primary  { animation: fadeUp 0.6s ease 0.3s both; }
+    .hero-trust   { animation: fadeUp 0.6s ease 0.38s both; }
+
+    @media (max-width: 480px) {
+      nav { padding: 14px 16px; }
+      .lang-btn { font-size: 9px; padding: 3px 5px; }
+      .hero, .manifesto, .app-preview, .how, .stories, .final-cta { padding-left: 18px; padding-right: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">My<span>90</span>Seconds</div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('ko')">KO</button>
+        <button class="lang-btn" onclick="setLang('id')">ID</button>
+        <button class="lang-btn" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      </div>
+      <a href="https://talk.kkobi.app" class="nav-cta" data-i18n="nav_cta">Try free →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">For every fan who waited.</div>
+    <div class="amber-line"></div>
+    <h1 class="hero-title" data-i18n="hero_title">
+      Those 90 seconds<br>with your idol.<br>Don't walk away <span class="amber" data-i18n="hero_title_amber">wishing.</span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero_sub">
+      The K-pop <strong>video call fansign</strong> prep room — built by fans,
+      for the 90 seconds that took $500 and a year of waiting.
+      We've all stood there. We built this so the next fan doesn't have to.
+    </p>
+    <a href="https://talk.kkobi.app" class="btn-primary" data-i18n="hero_cta">Start preparing — it's free →</a>
+    <p class="hero-trust" data-i18n="hero_trust">Free to start · No account needed · For every fancall, every fansign</p>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <div class="section-label" data-i18n="manifesto_label">Our story</div>
+    <p class="manifesto-text" data-i18n="manifesto_body">
+      You bought the albums.<br>
+      You stayed up for every comeback.<br>
+      You learned the choreography.<br><br>
+      And then your name was called for a <em>video call fansign.</em><br>
+      Eye to eye. 90 seconds with your bias.<br><br>
+      You smiled. You said "hi."<br>
+      And it was over.<br><br>
+      <span class="em">
+        If you're still thinking about what you should have said —<br>
+        if your mind went blank the second the fancall connected —<br>
+        you're not alone.
+      </span><br><br>
+      Thousands of K-pop fans have stood there.<br>
+      Thousands have walked away wishing they'd said more.<br><br>
+      <span class="em">
+        We didn't build this to teach you Korean.<br>
+        We built it so the next fan doesn't walk away wishing.
+      </span>
+    </p>
+    <p class="manifesto-credit" data-i18n="manifesto_credit">— Made with fans, for fans.</p>
+  </section>
+
+  <!-- APP PREVIEW -->
+  <section class="app-preview">
+    <div class="app-preview-header">
+      <div class="section-label" data-i18n="preview_label">The 90-second simulation</div>
+      <h2 class="preview-title" data-i18n="preview_title">Practice the full call.<br>Not just the words.</h2>
+      <p class="preview-sub" data-i18n="preview_sub">
+        This is what trips us up — not the lines we memorized, but when the idol
+        says something unexpected. We freeze. The 90 seconds end. We walk away.<br><br>
+        Our practice room simulates the full <strong>video call fansign</strong> —
+        the greeting, the unexpected questions, the silences, the goodbye.
+        So when the real fancall connects, you've already been there.
+      </p>
+    </div>
+    <div class="phone-mockup">
+      <div class="phone-topbar">
+        <div class="phone-live"><div class="live-dot"></div>LIVE</div>
+        <div class="phone-timer">01:23</div>
+      </div>
+      <div class="phone-idol-line">
+        <div class="idol-tag" data-i18n="mock_idol_tag">Felix says</div>
+        <div class="idol-says">
+          <div class="idol-korean">어디에서 왔어요?</div>
+          <div class="idol-roman">eodieseo wasseoyo?</div>
+          <div class="idol-trans" data-i18n="mock_idol_trans">Where are you from?</div>
+        </div>
+      </div>
+      <div class="phone-you-line">
+        <div class="you-tag" data-i18n="mock_you_tag">You</div>
+        <div class="you-korean">프랑스에서 왔어요!</div>
+        <div class="you-roman">peurangseu-eseo wasseoyo</div>
+      </div>
+      <div class="phone-mic">
+        <button class="mic-btn">
+          <svg class="mic-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
+          </svg>
+          <span data-i18n="mock_mic">Tap to speak</span>
+        </button>
+      </div>
+      <div class="phone-hint">
+        <div class="hint-label" data-i18n="mock_hint_label">Hint</div>
+        <div class="hint-text" data-i18n="mock_hint_text">브라질에서 왔어요! — I'm from Brazil!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="section-label" data-i18n="how_label">How it works</div>
+    <h2 class="how-title" data-i18n="how_title">Three steps.<br>One real conversation.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title" data-i18n="step1_title">Pick your moment</div>
+          <div class="step-desc" data-i18n="step1_desc">Compliment, birthday wish, encouragement, a request, or just saying you're a fan. Choose what matters most for your fancall — we'll build the rest around it.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title" data-i18n="step2_title">Learn the Korean phrases</div>
+          <div class="step-desc" data-i18n="step2_desc">Simple Korean phrases real fans use at fansigns — not textbook sentences. Each one comes with romanization, your language, and the sound. Hear it. Say it back. Until it feels yours.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title" data-i18n="step3_title">Simulate the 90 seconds</div>
+          <div class="step-desc" data-i18n="step3_desc">Practice the full video call fansign. The idol reacts to what you say. Asks you back. Goes off your script — like they actually do. By the time the real fancall comes, you've already been there.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAN STORIES -->
+  <section class="stories">
+    <div class="section-label" data-i18n="stories_label">From fans who stood there</div>
+    <h2 class="stories-title" data-i18n="stories_title">We're not the only ones.</h2>
+    <p class="stories-sub" data-i18n="stories_sub">Fans who walked away wishing — and then didn't.</p>
+    <div class="story-cards">
+      <div class="story-card">
+        <p class="story-quote" data-i18n="story1_quote">"I used to freeze the second the call connected. After practicing the full 90 seconds three times, I actually had a conversation. He asked me something and I answered. I still can't believe it."</p>
+        <div class="story-name">— Camille, France</div>
+      </div>
+      <div class="story-card">
+        <p class="story-quote" data-i18n="story2_quote">"I was so scared I'd forget everything. But I'd practiced so many times that the words just came out. He said my Korean was cute. I cried for an hour after."</p>
+        <div class="story-name">— Aisha, Indonesia</div>
+      </div>
+      <div class="story-card">
+        <p class="story-quote" data-i18n="story3_quote">"I wrote notes, I watched tutorials, nothing worked until I practiced actually responding to him. When he threw me off script, I didn't freeze. That was everything."</p>
+        <div class="story-name">— Maya, Philippines</div>
+      </div>
+      <div class="story-card">
+        <p class="story-quote" data-i18n="story4_quote">"I bought 60 albums for that call. I wasn't going to waste it. Practiced every day for two weeks. When the call ended I walked away knowing I said exactly what I wanted to say."</p>
+        <div class="story-name">— Beatriz, Brazil</div>
+      </div>
+      <div class="story-card">
+        <p class="story-quote" data-i18n="story5_quote">"The hardest part isn't the words — it's when they say something unexpected and your mind goes blank. Practicing the reactions changed everything for me."</p>
+        <div class="story-name">— Sophie, UK</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="section-label" data-i18n="final_label">Your day is coming.</div>
+    <div class="amber-line"></div>
+    <h2 class="final-title" data-i18n="final_title">When it does,<br>we'll be <span class="amber">here.</span></h2>
+    <p class="final-sub" data-i18n="final_sub">Free to start. No account needed for your first session. For every K-pop fan preparing for their fancall, their fansign, their 90 seconds.</p>
+    <a href="https://talk.kkobi.app" class="btn-primary" data-i18n="final_cta">Start your 90 seconds →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <span data-i18n="footer_made">Made with fans, for fans.</span><br>
+      <a href="https://my90sec.app">my90sec.app</a> · <a href="https://talk.kkobi.app" data-i18n="footer_open">Open the app</a><br>
+      <a href="mailto:cleex.hq@gmail.com">cleex.hq@gmail.com</a>
+    </p>
+  </footer>
+
+  <script>
+    const i18n = {
+      en: {
+        nav_cta: "Try free →",
+        hero_eyebrow: "For every fan who waited.",
+        hero_title: "Those 90 seconds<br>with your idol.<br>Don't walk away <span class=\"amber\">wishing.</span>",
+        hero_sub: "The K-pop <strong>video call fansign</strong> prep room — built by fans, for the 90 seconds that took $500 and a year of waiting. We've all stood there. We built this so the next fan doesn't have to.",
+        hero_cta: "Start preparing — it's free →",
+        hero_trust: "Free to start · No account needed · For every fancall, every fansign",
+        manifesto_label: "Our story",
+        manifesto_body: "You bought the albums.<br>You stayed up for every comeback.<br>You learned the choreography.<br><br>And then your name was called for a <em>video call fansign.</em><br>Eye to eye. 90 seconds with your bias.<br><br>You smiled. You said \"hi.\"<br>And it was over.<br><br><span class=\"em\">If you're still thinking about what you should have said —<br>if your mind went blank the second the fancall connected —<br>you're not alone.</span><br><br>Thousands of K-pop fans have stood there.<br>Thousands have walked away wishing they'd said more.<br><br><span class=\"em\">We didn't build this to teach you Korean.<br>We built it so the next fan doesn't walk away wishing.</span>",
+        manifesto_credit: "— Made with fans, for fans.",
+        preview_label: "The 90-second simulation",
+        preview_title: "Practice the full call.<br>Not just the words.",
+        preview_sub: "This is what trips us up — not the lines we memorized, but when the idol says something unexpected. We freeze. The 90 seconds end. We walk away.<br><br>Our practice room simulates the full <strong>video call fansign</strong> — the greeting, the unexpected questions, the silences, the goodbye. So when the real fancall connects, you've already been there.",
+        mock_idol_tag: "Felix says",
+        mock_idol_trans: "Where are you from?",
+        mock_you_tag: "You",
+        mock_mic: "Tap to speak",
+        mock_hint_label: "Hint",
+        mock_hint_text: "브라질에서 왔어요! — I'm from Brazil!",
+        how_label: "How it works",
+        how_title: "Three steps.<br>One real conversation.",
+        step1_title: "Pick your moment",
+        step1_desc: "Compliment, birthday wish, encouragement, a request, or just saying you're a fan. Choose what matters most for your fancall — we'll build the rest around it.",
+        step2_title: "Learn the Korean phrases",
+        step2_desc: "Simple Korean phrases real fans use at fansigns — not textbook sentences. Each one comes with romanization, your language, and the sound. Hear it. Say it back. Until it feels yours.",
+        step3_title: "Simulate the 90 seconds",
+        step3_desc: "Practice the full video call fansign. The idol reacts to what you say. Asks you back. Goes off your script — like they actually do. By the time the real fancall comes, you've already been there.",
+        stories_label: "From fans who stood there",
+        stories_title: "We're not the only ones.",
+        stories_sub: "Fans who walked away wishing — and then didn't.",
+        story1_quote: "\"I used to freeze the second the call connected. After practicing the full 90 seconds three times, I actually had a conversation. He asked me something and I answered. I still can't believe it.\"",
+        story2_quote: "\"I was so scared I'd forget everything. But I'd practiced so many times that the words just came out. He said my Korean was cute. I cried for an hour after.\"",
+        story3_quote: "\"I wrote notes, I watched tutorials, nothing worked until I practiced actually responding to him. When he threw me off script, I didn't freeze. That was everything.\"",
+        story4_quote: "\"I bought 60 albums for that call. I wasn't going to waste it. Practiced every day for two weeks. When the call ended I walked away knowing I said exactly what I wanted to say.\"",
+        story5_quote: "\"The hardest part isn't the words — it's when they say something unexpected and your mind goes blank. Practicing the reactions changed everything for me.\"",
+        final_label: "Your day is coming.",
+        final_title: "When it does,<br>we'll be <span class=\"amber\">here.</span>",
+        final_sub: "Free to start. No account needed for your first session. For every K-pop fan preparing for their fancall, their fansign, their 90 seconds.",
+        final_cta: "Start your 90 seconds →",
+        footer_made: "Made with fans, for fans.",
+        footer_open: "Open the app"
+      },
+      ko: {
+        nav_cta: "무료로 시작 →",
+        hero_eyebrow: "기다려온 모든 팬에게.",
+        hero_title: "아이돌과 함께하는<br>그 90초.<br>후회하며 <span class=\"amber\">돌아서지 마세요.</span>",
+        hero_sub: "K-pop <strong>영상통화 팬사인회</strong> 준비 공간 — 팬들이 만든, 팬들을 위한. 50만 원짜리 그 90초를 위해. 우리 모두 그 자리에 서 봤어요. 다음 팬은 후회하지 않도록 만들었습니다.",
+        hero_cta: "준비 시작하기 — 무료 →",
+        hero_trust: "무료로 시작 · 계정 불필요 · 모든 팬콜, 모든 팬싸를 위해",
+        manifesto_label: "우리의 이야기",
+        manifesto_body: "앨범을 샀어요.<br>모든 컴백에 밤을 새웠어요.<br>안무도 외웠어요.<br><br>그리고 당신의 이름이 불렸어요.<br><em>영상통화 팬사인회.</em><br>눈을 마주치며. 90초.<br><br>웃었어요. \"Hi\"라고 했어요.<br>그리고 끝났어요.<br><br><span class=\"em\">무슨 말을 했어야 했는지 아직도 생각난다면 —<br>팬콜이 연결되는 순간 머리가 하얘졌다면 —<br>혼자가 아니에요.</span><br><br>수천 명의 K-pop 팬들이 그 자리에 서 봤어요.<br>수천 명이 더 말할 수 있었으면 하는 마음으로 돌아섰어요.<br><br><span class=\"em\">한국어를 가르치려고 만든 게 아니에요.<br>다음 팬이 후회하며 돌아서지 않도록 만들었어요.</span>",
+        manifesto_credit: "— 팬과 함께, 팬을 위해.",
+        preview_label: "90초 시뮬레이션",
+        preview_title: "통화 전체를 연습하세요.<br>대사만이 아니라.",
+        preview_sub: "우리를 무너뜨리는 건 외운 대사가 아니에요. 아이돌이 예상치 못한 말을 할 때예요. 얼어붙어요. 90초가 끝나요. 돌아서요.<br><br>연습실은 실제 <strong>영상통화 팬사인회</strong> 전체를 시뮬레이션해요 — 인사부터 예상치 못한 질문, 침묵, 작별인사까지. 진짜 팬콜이 연결될 때, 이미 경험한 상태가 됩니다.",
+        mock_idol_tag: "Felix 말하는 중",
+        mock_idol_trans: "어디서 왔어요?",
+        mock_you_tag: "나",
+        mock_mic: "탭해서 말하기",
+        mock_hint_label: "힌트",
+        mock_hint_text: "브라질에서 왔어요! — I'm from Brazil!",
+        how_label: "이용 방법",
+        how_title: "세 단계.<br>하나의 진짜 대화.",
+        step1_title: "순간을 선택하세요",
+        step1_desc: "칭찬, 생일 축하, 응원, 요청, 또는 그냥 팬이라는 말. 팬콜에서 가장 중요한 것을 선택하세요 — 나머지는 우리가 준비해드려요.",
+        step2_title: "한국어 표현을 배우세요",
+        step2_desc: "실제 팬들이 팬싸에서 쓰는 간단한 한국어 표현들 — 교과서 문장이 아니에요. 로마자 발음, 번역, 음성이 함께 제공돼요. 듣고, 따라 말하고. 내 것이 될 때까지.",
+        step3_title: "90초를 시뮬레이션하세요",
+        step3_desc: "영상통화 팬사인회 전체를 연습하세요. 아이돌이 반응하고, 되묻고, 스크립트를 벗어나요 — 실제로 그러는 것처럼. 진짜 팬콜이 올 때, 이미 그 경험을 했을 거예요.",
+        stories_label: "그 자리에 서 봤던 팬들의 이야기",
+        stories_title: "우리만이 아니에요.",
+        stories_sub: "후회하며 돌아섰던 팬들 — 그리고 더 이상 그러지 않는.",
+        story1_quote: "\"연결되는 순간 얼어붙곤 했어요. 90초 전체를 세 번 연습한 후, 진짜 대화를 나눴어요. 그가 뭔가 물었고 저는 대답했어요. 아직도 믿기지 않아요.\"",
+        story2_quote: "\"모든 걸 잊을까 봐 너무 무서웠어요. 근데 너무 많이 연습해서 말이 그냥 나왔어요. 그가 제 한국어가 귀엽다고 했어요. 한 시간 동안 울었어요.\"",
+        story3_quote: "\"메모도 쓰고 튜토리얼도 봤는데, 그에게 실제로 반응하는 연습을 하기 전까지는 아무것도 안 됐어요. 스크립트를 벗어났을 때 얼어붙지 않았어요. 그게 전부였어요.\"",
+        story4_quote: "\"그 통화를 위해 앨범 60장을 샀어요. 낭비할 수 없었어요. 2주 동안 매일 연습했어요. 통화가 끝났을 때 하고 싶었던 말을 정확히 했다는 걸 알면서 돌아섰어요.\"",
+        story5_quote: "\"제일 어려운 건 단어가 아니에요 — 그들이 예상치 못한 말을 할 때 머리가 하얘지는 거예요. 반응을 연습하는 게 저에게 모든 것을 바꿔줬어요.\"",
+        final_label: "그날이 오고 있어요.",
+        final_title: "그날이 오면,<br>우리가 <span class=\"amber\">여기</span> 있을게요.",
+        final_sub: "무료로 시작. 첫 세션은 계정 불필요. 팬콜을, 팬싸를, 그 90초를 준비하는 모든 K-pop 팬에게.",
+        final_cta: "90초 시작하기 →",
+        footer_made: "팬과 함께, 팬을 위해.",
+        footer_open: "앱 열기"
+      },
+      id: {
+        nav_cta: "Coba gratis →",
+        hero_eyebrow: "Untuk setiap fan yang telah menunggu.",
+        hero_title: "90 detik itu<br>bersama idolamu.<br>Jangan pergi dengan <span class=\"amber\">penyesalan.</span>",
+        hero_sub: "Ruang latihan <strong>video call fansign</strong> K-pop — dibuat oleh fans, untuk 90 detik yang menelan Rp 8 juta dan setahun penantian. Kita semua pernah ada di sana. Kami membangun ini agar fans berikutnya tidak perlu menyesal.",
+        hero_cta: "Mulai berlatih — gratis →",
+        hero_trust: "Gratis untuk mulai · Tanpa akun · Untuk setiap fancall, setiap fansign",
+        manifesto_label: "Kisah kami",
+        manifesto_body: "Kamu membeli albumnya.<br>Kamu begadang untuk setiap comeback.<br>Kamu hafal koreografinya.<br><br>Dan kemudian namamu dipanggil untuk <em>video call fansign.</em><br>Bertatap muka. 90 detik bersama bias-mu.<br><br>Kamu tersenyum. Kamu bilang \"hai.\"<br>Dan semuanya berakhir.<br><br><span class=\"em\">Jika kamu masih memikirkan apa yang seharusnya kamu katakan —<br>jika pikiranmu kosong saat fancall tersambung —<br>kamu tidak sendirian.</span><br><br>Ribuan fans K-pop telah berdiri di sana.<br>Ribuan orang pergi dengan harapan bisa berkata lebih banyak.<br><br><span class=\"em\">Kami tidak membangun ini untuk mengajarimu bahasa Korea.<br>Kami membangunnya agar fans berikutnya tidak pergi dengan penyesalan.</span>",
+        manifesto_credit: "— Dibuat bersama fans, untuk fans.",
+        preview_label: "Simulasi 90 detik",
+        preview_title: "Latih seluruh panggilan.<br>Bukan hanya kata-katanya.",
+        preview_sub: "Inilah yang membuat kita gagal — bukan kalimat yang sudah kita hafal, tapi saat idol berkata sesuatu yang tidak terduga. Kita membeku. 90 detik berakhir. Kita pergi.<br><br>Ruang latihan kami mensimulasikan seluruh <strong>video call fansign</strong> — salam, pertanyaan tak terduga, hening, perpisahan. Jadi saat fancall sungguhan tersambung, kamu sudah pernah di sana.",
+        mock_idol_tag: "Felix berkata",
+        mock_idol_trans: "Kamu dari mana?",
+        mock_you_tag: "Kamu",
+        mock_mic: "Ketuk untuk bicara",
+        mock_hint_label: "Petunjuk",
+        mock_hint_text: "브라질에서 왔어요! — Saya dari Brazil!",
+        how_label: "Cara kerjanya",
+        how_title: "Tiga langkah.<br>Satu percakapan nyata.",
+        step1_title: "Pilih momenmu",
+        step1_desc: "Pujian, ucapan ulang tahun, semangat, permintaan, atau sekadar bilang kamu adalah fans. Pilih yang paling penting untuk fancall-mu — kami akan membangun sisanya.",
+        step2_title: "Pelajari frasa Korea",
+        step2_desc: "Frasa Korea sederhana yang digunakan fans sungguhan di fansign — bukan kalimat dari buku teks. Setiap frasa dilengkapi romanisasi, bahasamu, dan suaranya. Dengarkan. Ulangi. Sampai terasa milikmu.",
+        step3_title: "Simulasikan 90 detik",
+        step3_desc: "Latih seluruh video call fansign. Idol bereaksi terhadap apa yang kamu katakan. Bertanya balik. Melenceng dari skrip-mu — seperti yang mereka lakukan sungguhan. Saat fancall nyata tiba, kamu sudah pernah di sana.",
+        stories_label: "Dari fans yang pernah ada di sana",
+        stories_title: "Kami tidak sendirian.",
+        stories_sub: "Fans yang pergi dengan penyesalan — dan kemudian tidak lagi.",
+        story1_quote: "\"Dulu aku selalu membeku saat panggilan tersambung. Setelah berlatih 90 detik penuh tiga kali, aku benar-benar punya percakapan. Dia bertanya sesuatu dan aku menjawab. Aku masih tidak percaya.\"",
+        story2_quote: "\"Aku sangat takut melupakan segalanya. Tapi aku sudah berlatih berkali-kali sehingga kata-katanya keluar begitu saja. Dia bilang bahasa Koreaku lucu. Aku menangis selama sejam setelahnya.\"",
+        story3_quote: "\"Aku menulis catatan, menonton tutorial, tidak ada yang berhasil sampai aku berlatih meresponsnya langsung. Saat dia melenceng dari skrip, aku tidak membeku. Itu segalanya.\"",
+        story4_quote: "\"Aku membeli 60 album untuk panggilan itu. Aku tidak mau menyia-nyiakannya. Berlatih setiap hari selama dua minggu. Saat panggilan berakhir aku pergi dengan tahu bahwa aku sudah mengatakan persis apa yang ingin kusampaikan.\"",
+        story5_quote: "\"Bagian tersulit bukan kata-katanya — tapi saat mereka berkata sesuatu yang tak terduga dan pikiranmu kosong. Berlatih reaksi mengubah segalanya bagiku.\"",
+        final_label: "Harimu akan tiba.",
+        final_title: "Saat itu tiba,<br>kami akan <span class=\"amber\">di sini.</span>",
+        final_sub: "Gratis untuk mulai. Tidak perlu akun untuk sesi pertamamu. Untuk setiap fans K-pop yang mempersiapkan fancall, fansign, 90 detik mereka.",
+        final_cta: "Mulai 90 detikmu →",
+        footer_made: "Dibuat bersama fans, untuk fans.",
+        footer_open: "Buka aplikasi"
+      },
+      pt: {
+        nav_cta: "Experimente grátis →",
+        hero_eyebrow: "Para cada fã que esperou.",
+        hero_title: "Aqueles 90 segundos<br>com seu ídolo.<br>Não vá embora <span class=\"amber\">arrependida.</span>",
+        hero_sub: "A sala de preparação para <strong>video call fansign</strong> K-pop — feita por fãs, para os 90 segundos que custaram R$ 2.500 e um ano de espera. Todas nós já estivemos lá. Construímos isso para que a próxima fã não precise se arrepender.",
+        hero_cta: "Comece a praticar — é grátis →",
+        hero_trust: "Grátis para começar · Sem conta necessária · Para cada fancall, cada fansign",
+        manifesto_label: "Nossa história",
+        manifesto_body: "Você comprou os álbuns.<br>Ficou acordada para cada comeback.<br>Aprendeu a coreografia.<br><br>E então seu nome foi chamado para uma <em>video call fansign.</em><br>Olho no olho. 90 segundos com seu bias.<br><br>Você sorriu. Disse \"oi.\"<br>E acabou.<br><br><span class=\"em\">Se você ainda está pensando no que deveria ter dito —<br>se sua mente ficou em branco no momento em que a fancall conectou —<br>você não está sozinha.</span><br><br>Milhares de fãs de K-pop já estiveram lá.<br>Milhares foram embora querendo ter dito mais.<br><br><span class=\"em\">Não construímos isso para te ensinar coreano.<br>Construímos para que a próxima fã não vá embora arrependida.</span>",
+        manifesto_credit: "— Feito com fãs, para fãs.",
+        preview_label: "A simulação de 90 segundos",
+        preview_title: "Pratique a chamada inteira.<br>Não apenas as palavras.",
+        preview_sub: "É isso que nos derruba — não as falas que memorizamos, mas quando o ídolo diz algo inesperado. Ficamos paralisadas. Os 90 segundos acabam. Vamos embora.<br><br>Nossa sala de prática simula a <strong>video call fansign</strong> completa — a saudação, as perguntas inesperadas, os silêncios, a despedida. Para quando a fancall real conectar, você já terá estado lá.",
+        mock_idol_tag: "Felix diz",
+        mock_idol_trans: "De onde você é?",
+        mock_you_tag: "Você",
+        mock_mic: "Toque para falar",
+        mock_hint_label: "Dica",
+        mock_hint_text: "브라질에서 왔어요! — Sou do Brasil!",
+        how_label: "Como funciona",
+        how_title: "Três etapas.<br>Uma conversa real.",
+        step1_title: "Escolha seu momento",
+        step1_desc: "Elogio, parabéns de aniversário, encorajamento, um pedido ou apenas dizer que é fã. Escolha o que mais importa para sua fancall — nós cuidamos do resto.",
+        step2_title: "Aprenda as frases em coreano",
+        step2_desc: "Frases simples em coreano que fãs reais usam em fansigns — não frases de livro didático. Cada uma vem com romanização, no seu idioma e com o áudio. Ouça. Repita. Até sentir que é seu.",
+        step3_title: "Simule os 90 segundos",
+        step3_desc: "Pratique a video call fansign completa. O ídolo reage ao que você diz. Faz perguntas de volta. Sai do roteiro — como eles realmente fazem. Quando a fancall real chegar, você já terá estado lá.",
+        stories_label: "De fãs que estiveram lá",
+        stories_title: "Não somos as únicas.",
+        stories_sub: "Fãs que foram embora arrependidas — e depois não foram mais.",
+        story1_quote: "\"Eu costumava travar no segundo em que a chamada conectava. Depois de praticar os 90 segundos completos três vezes, eu realmente tive uma conversa. Ele me perguntou algo e eu respondi. Ainda não consigo acreditar.\"",
+        story2_quote: "\"Eu estava com tanto medo de esquecer tudo. Mas tinha praticado tantas vezes que as palavras simplesmente saíram. Ele disse que meu coreano era fofo. Chorei por uma hora depois.\"",
+        story3_quote: "\"Escrevi anotações, assisti tutoriais, nada funcionou até eu praticar responder a ele de verdade. Quando ele saiu do roteiro, eu não travei. Isso foi tudo.\"",
+        story4_quote: "\"Comprei 60 álbuns para aquela chamada. Não ia desperdiçar. Pratiquei todos os dias por duas semanas. Quando a chamada terminou fui embora sabendo que disse exatamente o que queria dizer.\"",
+        story5_quote: "\"A parte mais difícil não são as palavras — é quando eles dizem algo inesperado e sua mente fica em branco. Praticar as reações mudou tudo para mim.\"",
+        final_label: "Seu dia está chegando.",
+        final_title: "Quando chegar,<br>estaremos <span class=\"amber\">aqui.</span>",
+        final_sub: "Grátis para começar. Sem conta necessária para sua primeira sessão. Para cada fã de K-pop se preparando para sua fancall, seu fansign, seus 90 segundos.",
+        final_cta: "Comece seus 90 segundos →",
+        footer_made: "Feito com fãs, para fãs.",
+        footer_open: "Abrir o app"
+      },
+      fr: {
+        nav_cta: "Essai gratuit →",
+        hero_eyebrow: "Pour chaque fan qui a attendu.",
+        hero_title: "Ces 90 secondes<br>avec ton idole.<br>Ne repars pas avec des <span class=\"amber\">regrets.</span>",
+        hero_sub: "L'espace de préparation pour les <strong>video call fansign</strong> K-pop — créé par des fans, pour les 90 secondes qui ont coûté 500€ et un an d'attente. Nous y avons toutes été. Nous l'avons construit pour que la prochaine fan n'ait pas à regretter.",
+        hero_cta: "Commencer à pratiquer — c'est gratuit →",
+        hero_trust: "Gratuit pour commencer · Sans compte · Pour chaque fancall, chaque fansign",
+        manifesto_label: "Notre histoire",
+        manifesto_body: "Tu as acheté les albums.<br>Tu as veillé pour chaque comeback.<br>Tu as appris la chorégraphie.<br><br>Et puis ton nom a été appelé pour une <em>video call fansign.</em><br>Face à face. 90 secondes avec ton bias.<br><br>Tu as souri. Tu as dit \"bonjour.\"<br>Et c'était fini.<br><br><span class=\"em\">Si tu penses encore à ce que tu aurais dû dire —<br>si ton esprit s'est vidé à l'instant où le fancall s'est connecté —<br>tu n'es pas seule.</span><br><br>Des milliers de fans de K-pop y ont été.<br>Des milliers sont reparties en souhaitant avoir dit plus.<br><br><span class=\"em\">Nous n'avons pas construit ceci pour t'apprendre le coréen.<br>Nous l'avons construit pour que la prochaine fan ne reparte pas avec des regrets.</span>",
+        manifesto_credit: "— Fait avec des fans, pour les fans.",
+        preview_label: "La simulation de 90 secondes",
+        preview_title: "Pratique l'appel entier.<br>Pas seulement les mots.",
+        preview_sub: "C'est ce qui nous fait trébucher — pas les répliques mémorisées, mais quand l'idole dit quelque chose d'inattendu. On se fige. Les 90 secondes se terminent. On repart.<br><br>Notre salle de pratique simule la <strong>video call fansign</strong> complète — la salutation, les questions inattendues, les silences, les adieux. Quand le vrai fancall se connecte, tu y auras déjà été.",
+        mock_idol_tag: "Felix dit",
+        mock_idol_trans: "D'où viens-tu ?",
+        mock_you_tag: "Toi",
+        mock_mic: "Appuie pour parler",
+        mock_hint_label: "Indice",
+        mock_hint_text: "브라질에서 왔어요! — Je viens du Brésil !",
+        how_label: "Comment ça marche",
+        how_title: "Trois étapes.<br>Une vraie conversation.",
+        step1_title: "Choisis ton moment",
+        step1_desc: "Un compliment, des vœux d'anniversaire, de l'encouragement, une demande ou juste dire que tu es fan. Choisis ce qui compte le plus pour ton fancall — on s'occupe du reste.",
+        step2_title: "Apprends les phrases coréennes",
+        step2_desc: "Des phrases coréennes simples que de vraies fans utilisent aux fansigns — pas des phrases de manuel. Chacune est accompagnée de la romanisation, de ta langue et du son. Écoute. Répète. Jusqu'à ce que ça te semble naturel.",
+        step3_title: "Simule les 90 secondes",
+        step3_desc: "Pratique la video call fansign entière. L'idole réagit à ce que tu dis. Pose des questions. Sort de ton script — comme ils le font vraiment. Quand le vrai fancall arrive, tu y auras déjà été.",
+        stories_label: "De fans qui y ont été",
+        stories_title: "Nous ne sommes pas les seules.",
+        stories_sub: "Des fans qui sont reparties avec des regrets — et qui ne l'ont plus fait.",
+        story1_quote: "\"Je me figeais toujours à la seconde où l'appel se connectait. Après avoir pratiqué les 90 secondes complètes trois fois, j'ai vraiment eu une conversation. Il m'a demandé quelque chose et j'ai répondu. Je n'arrive toujours pas à y croire.\"",
+        story2_quote: "\"J'avais tellement peur de tout oublier. Mais j'avais tellement pratiqué que les mots sont sortis tout seuls. Il a dit que mon coréen était mignon. J'ai pleuré pendant une heure après.\"",
+        story3_quote: "\"J'ai écrit des notes, regardé des tutoriels, rien ne fonctionnait jusqu'à ce que je pratique vraiment à lui répondre. Quand il est sorti du script, je ne me suis pas figée. C'était tout.\"",
+        story4_quote: "\"J'ai acheté 60 albums pour cet appel. Je n'allais pas le gâcher. J'ai pratiqué chaque jour pendant deux semaines. Quand l'appel s'est terminé je suis repartie en sachant que j'avais dit exactement ce que je voulais dire.\"",
+        story5_quote: "\"La partie la plus difficile ce ne sont pas les mots — c'est quand ils disent quelque chose d'inattendu et que ton esprit se vide. Pratiquer les réactions a tout changé pour moi.\"",
+        final_label: "Ton jour arrive.",
+        final_title: "Quand il viendra,<br>nous serons <span class=\"amber\">là.</span>",
+        final_sub: "Gratuit pour commencer. Sans compte pour ta première session. Pour chaque fan de K-pop qui prépare son fancall, son fansign, ses 90 secondes.",
+        final_cta: "Commence tes 90 secondes →",
+        footer_made: "Fait avec des fans, pour les fans.",
+        footer_open: "Ouvrir l'app"
+      }
+    };
+
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      const t = i18n[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+      });
+      document.documentElement.lang = lang;
+    }
+
+    // 브라우저 언어 자동 감지
+    const browserLang = navigator.language.slice(0,2);
+    const supported = ['en','ko','id','pt','fr'];
+    if (supported.includes(browserLang)) setLang(browserLang);
+  </script>
+</body>
+</html>
+nt="video call fansign, kpop fancall, fansign korean phrases, how to prepare fansign, kpop video call, fancall tips, what to say to kpop idol, korean for kpop fans, fansign practice, idol video call, kpop fan call practice, learn korean fansign" />
 
   <meta property="og:title" content="My 90 Seconds — For every fan who waited." />
   <meta property="og:description" content="The K-pop video call fansign prep room. Practice your 90 seconds in Korean — so the next fan doesn't walk away wishing." />
