@@ -84,7 +84,20 @@
     /* 히어로 스포트라이트 + 고스트 90 */
     .hero { position: relative; overflow: visible; }
     .hero-spotlight { position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 720px; height: 620px; background: radial-gradient(ellipse at center, rgba(255,216,77,0.12) 0%, rgba(255,216,77,0.04) 38%, transparent 72%); pointer-events: none; z-index: 0; }
-    .ghost-90 { font-family: var(--font-en); font-size: clamp(240px, 26vw, 420px); font-weight: 800; line-height: 0.8; color: rgba(255,216,77,0.04); pointer-events: none; user-select: none; letter-spacing: -0.05em; position: relative; z-index: 0; }
+    .ghost-90 { font-family: var(--font-en); font-size: clamp(240px, 26vw, 420px); font-weight: 800; line-height: 0.8; color: rgba(255,216,77,0.04); pointer-events: none; user-select: none; letter-spacing: -0.05em; position: relative; z-index: 0; font-variant-numeric: tabular-nums; }
+
+    /* 문장 마키 스트립 */
+    .marquee { border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); padding: 20px 0; overflow: hidden; }
+    .marquee-row { overflow: hidden; white-space: nowrap; }
+    .marquee-row + .marquee-row { margin-top: 12px; }
+    .marquee-track { display: inline-flex; white-space: nowrap; animation: marquee-scroll 60s linear infinite; }
+    .marquee-row.slow .marquee-track { animation-duration: 95s; }
+    .marquee-track span { font-size: 14px; color: rgba(242,240,244,0.7); padding-right: 8px; font-family: var(--font-ko); }
+    .marquee-track .rom { color: rgba(255,216,77,0.55); font-style: italic; font-family: var(--font-en); }
+    .marquee-track .dot { color: rgba(255,255,255,0.18); padding: 0 14px 0 6px; }
+    .marquee-row.slow .marquee-track span { color: rgba(242,240,244,0.4); }
+    .marquee-row.slow .marquee-track .rom { color: rgba(255,216,77,0.32); }
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* 팬 후기 인용부호 */
     .stories { position: relative; }
@@ -167,11 +180,12 @@
     .typing span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes typedot { 0%, 60%, 100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
 
-    .phone-mic { padding: 14px 16px 16px; display: flex; justify-content: center; background: #0E0E0F; border-top: 0.5px solid rgba(255,255,255,0.05); }
-    .mic-btn { background: var(--amber); color: #0E0E0F; border: none; border-radius: 50px; padding: 11px 26px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px; font-family: var(--font-en); width: 100%; justify-content: center; }
+    .phone-mic { padding: 14px 16px 16px; height: 62px; box-sizing: border-box; display: flex; justify-content: center; align-items: center; background: #0E0E0F; border-top: 0.5px solid rgba(255,255,255,0.05); }
+    .mic-btn { background: var(--amber); color: #0E0E0F; border: none; border-radius: 50px; padding: 11px 16px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-en); width: 100%; height: 34px; }
     body.lang-ko .mic-btn { letter-spacing: 0.02em; }
-    .mic-icon { width: 14px; height: 14px; fill: #0E0E0F; }
-    .mic-wave { display: inline-flex; align-items: center; gap: 2px; height: 14px; }
+    #micLabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; display: inline-block; }
+    .mic-icon { width: 14px; height: 14px; fill: #0E0E0F; flex-shrink: 0; }
+    .mic-wave { display: inline-flex; align-items: center; gap: 2px; height: 14px; flex-shrink: 0; }
     .mic-wave span { width: 2px; border-radius: 2px; background: #0E0E0F; animation: micwave 0.9s ease-in-out infinite; }
     @keyframes micwave { 0%,100% { height: 4px; } 50% { height: 12px; } }
 
@@ -197,8 +211,22 @@
     .story-quote { font-family: var(--font-serif); font-size: 14px; font-style: italic; color: var(--text2); line-height: 1.7; margin-bottom: 10px; }
     .story-name { font-size: 11px; color: var(--text3); font-weight: 600; letter-spacing: 0.04em; }
 
-    /* FINAL CTA */
-    .final-cta { padding: 96px 48px; border-top: 0.5px solid var(--border); max-width: 820px; margin: 0 auto; }
+    /* FINALE — 통화 종료 연출 */
+    .finale { padding: 110px 48px 80px; border-top: 0.5px solid var(--border); max-width: 820px; margin: 0 auto; text-align: center; }
+    .finale-timer { font-family: var(--font-en); font-size: clamp(56px, 10vw, 88px); font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; line-height: 1; margin-bottom: 14px; transition: color 0.6s; }
+    .finale-timer.ended { color: var(--amber); }
+    .finale-status { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text3); transition: color 0.6s; margin-bottom: 40px; }
+    .finale-status.ended { color: var(--amber-label); }
+    .finale-body { opacity: 0; transform: translateY(14px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .finale-body.show { opacity: 1; transform: translateY(0); }
+    .finale-msg { font-family: var(--font-serif); font-size: clamp(20px, 3.5vw, 28px); font-weight: 500; line-height: 1.4; color: var(--text); margin-bottom: 28px; }
+    body.lang-ko .finale-msg { font-family: var(--font-ko); font-weight: 800; font-style: normal; }
+
+    /* GOODBYE — 또 만나요 */
+    .goodbye { padding: 72px 48px 64px; border-top: 0.5px solid var(--border); text-align: center; }
+    .goodbye-kr { font-family: var(--font-ko); font-size: clamp(40px, 7vw, 64px); font-weight: 700; color: var(--amber); line-height: 1.2; margin-bottom: 10px; }
+    .goodbye-rom { font-size: 12px; color: rgba(255,216,77,0.5); font-style: italic; margin-bottom: 16px; }
+    .goodbye-sub { font-size: 13px; color: var(--text3); line-height: 1.7; max-width: 380px; margin: 0 auto; }
     .final-title { font-family: var(--font-serif); font-size: clamp(28px, 6vw, 44px); font-weight: 500; line-height: 1.15; margin-bottom: 16px; }
     body.lang-ko .final-title { font-weight: 800; line-height: 1.3; }
     .final-title .amber { color: var(--amber); }
@@ -265,8 +293,35 @@
     </div>
   </section>
 
-  <div class="soundwave reveal" aria-hidden="true">
-    <span style="animation-delay:0s"></span><span style="animation-delay:0.1s"></span><span style="animation-delay:0.2s"></span><span style="animation-delay:0.3s"></span><span style="animation-delay:0.15s"></span><span style="animation-delay:0.25s"></span><span style="animation-delay:0.05s"></span><span style="animation-delay:0.35s"></span><span style="animation-delay:0.2s"></span><span style="animation-delay:0.1s"></span><span style="animation-delay:0.3s"></span><span style="animation-delay:0s"></span><span style="animation-delay:0.25s"></span>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-row">
+      <div class="marquee-track">
+        <span>오늘 너무 행복해요 <span class="rom">oneul neomu haengbokhaeyo</span><span class="dot">·</span></span>
+        <span>항상 응원해요 <span class="rom">hangsang eungwonhaeyo</span><span class="dot">·</span></span>
+        <span>보고 싶었어요 <span class="rom">bogo sipeosseoyo</span><span class="dot">·</span></span>
+        <span>노래 진짜 좋아요 <span class="rom">norae jinjja johayo</span><span class="dot">·</span></span>
+        <span>만나서 행복해요 <span class="rom">mannaseo haengbokhaeyo</span><span class="dot">·</span></span>
+        <span>오늘 너무 행복해요 <span class="rom">oneul neomu haengbokhaeyo</span><span class="dot">·</span></span>
+        <span>항상 응원해요 <span class="rom">hangsang eungwonhaeyo</span><span class="dot">·</span></span>
+        <span>보고 싶었어요 <span class="rom">bogo sipeosseoyo</span><span class="dot">·</span></span>
+        <span>노래 진짜 좋아요 <span class="rom">norae jinjja johayo</span><span class="dot">·</span></span>
+        <span>만나서 행복해요 <span class="rom">mannaseo haengbokhaeyo</span><span class="dot">·</span></span>
+      </div>
+    </div>
+    <div class="marquee-row slow">
+      <div class="marquee-track">
+        <span>진짜요? <span class="rom">jinjjayo?</span><span class="dot">·</span></span>
+        <span>다시 한번 말해주세요 <span class="rom">dasi hanbeon malhaejuseyo</span><span class="dot">·</span></span>
+        <span>생일 축하해요 <span class="rom">saengil chukahaeyo</span><span class="dot">·</span></span>
+        <span>건강 챙겨요 <span class="rom">geongang chaenggyeoyo</span><span class="dot">·</span></span>
+        <span>또 만나요 <span class="rom">tto mannayo</span><span class="dot">·</span></span>
+        <span>진짜요? <span class="rom">jinjjayo?</span><span class="dot">·</span></span>
+        <span>다시 한번 말해주세요 <span class="rom">dasi hanbeon malhaejuseyo</span><span class="dot">·</span></span>
+        <span>생일 축하해요 <span class="rom">saengil chukahaeyo</span><span class="dot">·</span></span>
+        <span>건강 챙겨요 <span class="rom">geongang chaenggyeoyo</span><span class="dot">·</span></span>
+        <span>또 만나요 <span class="rom">tto mannayo</span><span class="dot">·</span></span>
+      </div>
+    </div>
   </div>
 
   <section class="manifesto reveal">
@@ -359,18 +414,25 @@
     </div>
   </section>
 
-  <section class="final-cta reveal">
-    <div class="section-label" data-i18n="final_label">Your day is coming.</div>
-    <div class="amber-line"></div>
-    <h2 class="final-title" data-i18n="final_title">When it does,<br>we'll be <span class="amber">here.</span></h2>
-    <p class="final-sub" data-i18n="final_sub">Free to start. No account needed for your first session. For every K-pop fan preparing for their fancall, their fansign, their 90 seconds.</p>
-    <a href="https://talk.kkobi.app" class="btn-primary" data-i18n="final_cta">Start your 90 seconds →</a>
+  <section class="finale reveal" id="finale">
+    <div class="finale-timer" id="finTimer">00:05</div>
+    <div class="finale-status" id="finStatus" data-i18n="fin_progress">Call in progress</div>
+    <div class="finale-body" id="finBody">
+      <p class="finale-msg" data-i18n="fin_msg">The real one ends this fast.<br>Make yours count.</p>
+      <a href="https://talk.kkobi.app" class="btn-primary" data-i18n="fin_cta">Start preparing — it's free →</a>
+    </div>
   </section>
+
+  <div class="goodbye">
+    <div class="goodbye-kr">또 만나요</div>
+    <div class="goodbye-rom">tto mannayo — see you again</div>
+    <p class="goodbye-sub" data-i18n="bye_sub">The words every fan hopes to say with a smile, not a wish.</p>
+  </div>
 
   <footer>
     <p>
       <span data-i18n="footer_made">Made with fans, for fans.</span><br>
-      <a href="https://my90sec.app">my90sec.app</a> · <a href="https://talk.kkobi.app" data-i18n="footer_open">Open the app</a><br>
+      <a href="https://my90sec.app">my90sec.app</a> · <a href="/faq">FAQ</a> · <a href="https://talk.kkobi.app" data-i18n="footer_open">Open the app</a><br>
       <a href="mailto:cleex.hq@gmail.com">cleex.hq@gmail.com</a>
     </p>
   </footer>
@@ -416,6 +478,11 @@
         final_title: "When it does,<br>we'll be <span class=\"amber\">here.</span>",
         final_sub: "Free to start. No account needed for your first session. For every K-pop fan preparing for their fancall and their fansign. Their 90 seconds.",
         final_cta: "Start your 90 seconds →",
+        fin_progress: "Call in progress",
+        fin_ended: "Call ended",
+        fin_msg: "The real one ends this fast.<br>Make yours count.",
+        fin_cta: "Start preparing — it's free →",
+        bye_sub: "The words every fan hopes to say with a smile, not a wish.",
         footer_made: "Made with fans, for fans.",
         footer_open: "Open the app"
       },
@@ -458,6 +525,11 @@
         final_title: "그날이 오면,<br>우리가 <span class=\"amber\">여기 있을게요.</span>",
         final_sub: "무료로 시작해요. 첫 연습은 가입도 필요 없어요. 영통과 팬싸 그리고 그 90초를 준비하는 모든 팬에게.",
         final_cta: "내 90초 시작하기 →",
+        fin_progress: "통화 중",
+        fin_ended: "통화 종료",
+        fin_msg: "진짜 통화도 이렇게 빨리 끝나요.<br>그 90초를 후회 없이.",
+        fin_cta: "연습 시작하기 — 무료 →",
+        bye_sub: "아쉬움이 아니라 웃으며 건네고 싶은 그 인사.",
         footer_made: "팬과 함께, 팬을 위해",
         footer_open: "앱 열기"
       },
@@ -500,6 +572,11 @@
         final_title: "Saat itu tiba,<br>kami akan <span class=\"amber\">di sini.</span>",
         final_sub: "Gratis untuk mulai. Tidak perlu akun untuk sesi pertamamu. Untuk setiap fans K-pop yang menyiapkan fancall dan fansign mereka. 90 detik mereka.",
         final_cta: "Mulai 90 detikmu →",
+        fin_progress: "Panggilan berlangsung",
+        fin_ended: "Panggilan berakhir",
+        fin_msg: "Panggilan sungguhan berakhir secepat ini.<br>Jadikan milikmu berarti.",
+        fin_cta: "Mulai berlatih — gratis →",
+        bye_sub: "Kata perpisahan yang ingin diucapkan setiap fans dengan senyuman, bukan penyesalan.",
         footer_made: "Dibuat bersama fans, untuk fans.",
         footer_open: "Buka aplikasi"
       },
@@ -542,6 +619,11 @@
         final_title: "Quando chegar,<br>estaremos <span class=\"amber\">aqui.</span>",
         final_sub: "Grátis para começar. Sem conta para sua primeira sessão. Para cada fã de K-pop se preparando para sua fancall e seu fansign. Seus 90 segundos.",
         final_cta: "Comece seus 90 segundos →",
+        fin_progress: "Chamada em andamento",
+        fin_ended: "Chamada encerrada",
+        fin_msg: "A chamada real termina assim tão rápido.<br>Faça a sua valer.",
+        fin_cta: "Comece a praticar — é grátis →",
+        bye_sub: "As palavras que toda fã espera dizer com um sorriso, não com um desejo.",
         footer_made: "Feito com fãs, para fãs.",
         footer_open: "Abrir o app"
       },
@@ -584,6 +666,11 @@
         final_title: "Quand il viendra,<br>nous serons <span class=\"amber\">là.</span>",
         final_sub: "Gratuit pour commencer. Sans compte pour ta première session. Pour chaque fan de K-pop qui prépare son fancall et son fansign. Ses 90 secondes.",
         final_cta: "Commence tes 90 secondes →",
+        fin_progress: "Appel en cours",
+        fin_ended: "Appel terminé",
+        fin_msg: "Le vrai appel se termine aussi vite.<br>Fais compter le tien.",
+        fin_cta: "Commence à pratiquer — c'est gratuit →",
+        bye_sub: "Les mots que chaque fan espère dire avec un sourire, pas un regret.",
         footer_made: "Fait avec des fans, pour les fans.",
         footer_open: "Ouvrir l'app"
       }
@@ -602,6 +689,9 @@
       });
       document.documentElement.lang = lang;
       document.body.classList.toggle('lang-ko', lang === 'ko');
+      if (typeof finEnded !== 'undefined' && finEnded) {
+        document.getElementById('finStatus').textContent = i18n[lang].fin_ended;
+      }
       if (typeof runConversation === 'function' && document.getElementById('chatWindow')) {
         clearTimeout(convoTimer); convoTimer = null;
         clearInterval(countdownTimer);
@@ -725,6 +815,50 @@
       });
     }, { threshold: 0.3 });
     simObserver.observe(document.querySelector('.phone-mockup'));
+
+    /* 고스트 90 카운트다운 */
+    const ghostEl = document.querySelector('.ghost-90');
+    if (ghostEl) {
+      let g = 90;
+      setInterval(() => {
+        g = g > 0 ? g - 1 : 90;
+        ghostEl.textContent = g;
+      }, 1000);
+    }
+
+    /* 피날레 통화 종료 연출 */
+    const finTimer = document.getElementById('finTimer');
+    const finStatus = document.getElementById('finStatus');
+    const finBody = document.getElementById('finBody');
+    let finStarted = false;
+    let finEnded = false;
+
+    function startFinale() {
+      let s = 5;
+      const iv = setInterval(() => {
+        s -= 1;
+        finTimer.textContent = '00:0' + Math.max(s, 0);
+        if (s <= 0) {
+          clearInterval(iv);
+          finEnded = true;
+          finTimer.classList.add('ended');
+          finStatus.textContent = i18n[currentLang].fin_ended;
+          finStatus.classList.add('ended');
+          setTimeout(() => finBody.classList.add('show'), 500);
+        }
+      }, 1000);
+    }
+
+    const finObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !finStarted) {
+          finStarted = true;
+          startFinale();
+          finObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    finObserver.observe(document.getElementById('finale'));
 
     /* 초기 언어 설정 (모든 변수 선언 이후) */
     setLang('en');
