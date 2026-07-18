@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -22,25 +23,36 @@
       --text: #F2F0F4; --text2: #B0AEB8; --text3: #7A7882;
       --border: rgba(255,255,255,0.07);
       --font-en: 'Manrope', sans-serif; --font-serif: 'Lora', serif;
+      --font-ko: 'Pretendard', sans-serif;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-en); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body.lang-ko { font-family: var(--font-ko); }
+    body.lang-ko h1, body.lang-ko .page-sub, body.lang-ko summary h2, body.lang-ko .answer, body.lang-ko .cta-block p {
+      word-break: keep-all; line-break: strict; font-family: var(--font-ko);
+    }
     body::before {
       content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.035;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
     }
     nav, main, footer { position: relative; z-index: 2; }
 
-    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background: rgba(14,14,15,0.92); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); }
-    .nav-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background: rgba(14,14,15,0.92); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); gap: 12px; }
+    .nav-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; font-family: var(--font-en); flex-shrink: 0; }
     .nav-logo span { color: var(--amber); }
-    .nav-cta { background: var(--amber); color: #0E0E0F; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 16px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .lang-toggle { display: flex; gap: 2px; background: rgba(255,255,255,0.05); border: 0.5px solid var(--border); border-radius: 6px; padding: 3px; }
+    .lang-btn { background: none; border: none; color: var(--text3); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; padding: 4px 7px; border-radius: 4px; cursor: pointer; transition: all 0.15s; font-family: var(--font-en); }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active { background: var(--amber); color: #0E0E0F; }
+    .nav-cta { background: var(--amber); color: #0E0E0F; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 16px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; white-space: nowrap; }
     .nav-cta:hover { opacity: 0.88; }
 
     main { max-width: 780px; margin: 0 auto; padding: 72px 32px 80px; }
     .page-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber-label); margin-bottom: 16px; }
     .amber-line { width: 28px; height: 1.5px; background: var(--amber); opacity: 0.5; margin-bottom: 20px; }
     h1 { font-family: var(--font-serif); font-size: clamp(30px, 5vw, 44px); font-weight: 500; line-height: 1.15; margin-bottom: 14px; }
+    body.lang-ko h1 { font-weight: 800; line-height: 1.3; }
     h1 .amber { color: var(--amber); }
     .page-sub { font-size: 14px; color: var(--text2); line-height: 1.75; max-width: 520px; margin-bottom: 48px; }
 
@@ -50,6 +62,7 @@
     summary { list-style: none; cursor: pointer; padding: 22px 20px 22px 18px; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
     summary::-webkit-details-marker { display: none; }
     summary h2 { font-family: var(--font-en); font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--text); flex: 1; }
+    body.lang-ko summary h2 { font-family: var(--font-ko); font-weight: 700; }
     summary .chev { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; color: var(--text3); transition: transform 0.25s, color 0.25s; }
     details[open] summary .chev { transform: rotate(180deg); color: var(--amber); }
     .answer { padding: 0 20px 24px 18px; font-size: 14px; color: var(--text2); line-height: 1.8; max-width: 640px; }
@@ -58,7 +71,9 @@
 
     .cta-block { margin-top: 64px; padding: 36px 28px; border: 0.5px solid var(--amber-border); border-radius: 8px; background: var(--amber-dim); text-align: center; }
     .cta-block p { font-family: var(--font-serif); font-size: 17px; font-style: italic; color: var(--text2); line-height: 1.8; margin-bottom: 22px; }
+    body.lang-ko .cta-block p { font-family: var(--font-ko); font-weight: 500; font-style: normal; }
     .cta-block .em { color: var(--text); font-style: normal; }
+    body.lang-ko .cta-block .em { font-weight: 700; }
     .btn-primary { display: inline-block; background: var(--amber); color: #0E0E0F; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 24px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; }
     .btn-primary:hover { opacity: 0.88; }
 
@@ -68,6 +83,8 @@
     footer a:hover { color: var(--amber); }
 
     @media (max-width: 480px) {
+      nav { padding: 14px 16px; }
+      .lang-btn { font-size: 9px; padding: 3px 5px; }
       main { padding: 48px 20px 64px; }
       summary { padding: 18px 14px 18px 14px; }
       .answer { padding: 0 14px 20px 14px; }
@@ -78,36 +95,45 @@
 
   <nav>
     <a class="nav-logo" href="/">My<span>90</span>Seconds</a>
-    <a href="https://talk.kkobi.app/?utm_source=faq&utm_medium=landing" class="nav-cta">Try free →</a>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('ko')">KO</button>
+        <button class="lang-btn" onclick="setLang('id')">ID</button>
+        <button class="lang-btn" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      </div>
+      <a href="https://talk.kkobi.app/?utm_source=faq&utm_medium=landing" class="nav-cta" data-i18n="nav_cta">Try free →</a>
+    </div>
   </nav>
 
   <main>
-    <div class="page-label">Fansign video call FAQ</div>
+    <div class="page-label" data-i18n="page_label">Fansign video call FAQ</div>
     <div class="amber-line"></div>
-    <h1>Everything fans ask<br><span class="amber">before the call.</span></h1>
-    <p class="page-sub">Real answers from fans who've been there. What to say in Korean, how to handle the nerves, what happens on the day — and how to walk away without wishing.</p>
+    <h1 data-i18n="page_title">Everything fans ask<br><span class="amber">before the call.</span></h1>
+    <p class="page-sub" data-i18n="page_sub">Real answers from fans who've been there. What to say in Korean, how to handle the nerves, what happens on the day — and how to walk away without wishing.</p>
 
     <div class="faq-list">
 
       <details>
-        <summary><h2>I just won a video call fansign and I'm panicking. What do I do first?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q1_q">I just won a video call fansign and I'm panicking. What do I do first?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q1_a">
           <p>First — congratulations. And yes, the panic is completely normal. Almost every winner describes the same feeling: excitement for about ten seconds, then "wait, what do I actually say?"</p>
           <p>Here's a simple order that works: (1) Check your event details — date, time zone, and the app the call will use. (2) Decide on 2–3 things you genuinely want to say, not ten. (3) Practice saying them out loud before the day comes. That last step is the one most fans skip — and the one that changes everything.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>I barely speak Korean. Can I still do a fancall?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q2_q">I barely speak Korean. Can I still do a fancall?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q2_a">
           <p>Yes. At overseas fansign events, fans who don't speak Korean are the majority, not the exception — one fan who attended a European fansign put it simply: "most winners didn't speak Korean, we were all super nervous as well."</p>
           <p>Idols know this. They're used to it. A short, genuine sentence in simple Korean lands better than a long perfect one — and smiling through a mistake is a completely valid strategy. You need a few lines you're comfortable with, not a whole language.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>What should I actually say during my 90 seconds?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q3_q">What should I actually say during my 90 seconds?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q3_a">
           <p>The structure that works for most fans: a greeting, one main thing you came to say, one short question or reaction, and a goodbye. That's it — four beats.</p>
           <p>Keep each line short enough to say in one breath. <span class="kr">"오늘 너무 행복해요"</span> (I'm so happy today) beats a three-clause sentence you'll trip over. And prepare one flexible reaction like <span class="kr">"진짜요?"</span> (really?) for whatever they say back — the call is a conversation, not a speech.</p>
           <p>If you want to rehearse the whole 90 seconds — including how you'll react when they answer — that's exactly what we built our practice call for.</p>
@@ -115,72 +141,72 @@
       </details>
 
       <details>
-        <summary><h2>I'm scared I'll freeze the moment the call connects. How do I prepare for that?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q4_q">I'm scared I'll freeze the moment the call connects. How do I prepare for that?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q4_a">
           <p>Freezing doesn't mean you're unprepared — it usually means you care a lot. Fans who've done multiple calls say the nerves never fully disappear; they just get more manageable each time.</p>
           <p>Two things help most: (1) practicing out loud, not in your head — your mouth needs the rehearsal more than your brain does, and (2) having your first line so ready that it comes out automatically. Once the first sentence lands, the rest tends to follow.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>Is it okay to read from a script?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q5_q">Is it okay to read from a script?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q5_a">
           <p>You can, but there are two honest downsides. Machine-translated scripts often sound unnatural — fans have described rewriting a friend's Google-translated script minutes before a call because it read so awkwardly. And reading while on camera splits your attention, so you miss the moment you paid for.</p>
           <p>A better middle ground: write your lines, then practice them until you only need a one-word memo per line. You keep the safety net without spending your 90 seconds looking down.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>How long is a fancall, really? It feels like it ends instantly.</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q6_q">How long is a fancall, really? It feels like it ends instantly.</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q6_a">
           <p>Most video call events give you somewhere between 60 seconds and 3 minutes, depending on how many items you purchased and the event's rules. And yes — whatever the number is, it will feel shorter.</p>
           <p>The fans who walk away satisfied usually aren't the ones who said the most. They're the ones who decided in advance what mattered most and said that first. Front-load what you came to say; treat everything after as a bonus.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>What if I don't understand what my idol says back?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q7_q">What if I don't understand what my idol says back?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q7_a">
           <p>This happens constantly, and it's okay. A few fans' favorite recovery lines: <span class="kr">"다시 한번 말해주세요"</span> (please say that once more), or simply reacting with warmth — a laugh, <span class="kr">"진짜요?"</span>, a hand on your heart — keeps the moment alive even when the words don't land.</p>
           <p>One thing to know in advance: staff usually won't translate mid-call. So it helps to practice <em>hearing</em> simple Korean, not just saying it. Listening is half the call.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>What happens if the call drops or the connection is bad?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q8_q">What happens if the call drops or the connection is bad?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q8_a">
           <p>Technical issues are more common than you'd think — frozen screens, audio delays, calls cutting out. If it happens: don't panic and don't hang up. Message the event staff immediately (keep that chat window ready before the call). Many events will reconnect you or adjust your time.</p>
           <p>Before the day: use Wi-Fi you trust, close every other app, and do one test call with a friend on the same app if you can.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>What's the waiting process like before the call? I heard there's a test call.</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q9_q">What's the waiting process like before the call? I heard there's a test call.</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q9_a">
           <p>Most events run a test call (checking your camera, audio, and identity) before the real one — often 30–60 minutes earlier. Then you wait for staff to call you when it's your turn.</p>
           <p>Fair warning from fans who've been through it: the waiting room is often the most stressful part — some say it's worse than the call itself. Have water nearby, keep your notes in view, and remember the hard part ends the second you see their face.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>Can I record my fancall?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q10_q">Can I record my fancall?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q10_a">
           <p>It depends entirely on the event. Some officially provide a recording afterward, some allow self-recording, and some prohibit it. Check your event notice — and if it's unclear, ask staff during the test call.</p>
           <p>If recording is allowed, set it up before the waiting room, not during. More than a few fans have lost their only copy of the call to a recording button that never got pressed.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>How do I know if a winner notification is real or a scam?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q11_q">How do I know if a winner notification is real or a scam?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q11_a">
           <p>Sadly, fake "winner" messages exist. Real notifications come from the platform you actually purchased on, reference your real order, and never ask you to download an unfamiliar app or send a photo of your passport/ID through chat to "verify" you before the event.</p>
           <p>Red flags fans have reported: unexpected contact through WeChat or personal DMs, urgent "confirm within hours" pressure, and ID photo requests. When in doubt, contact the store's official support directly — never through the link in the suspicious message.</p>
         </div>
       </details>
 
       <details>
-        <summary><h2>Do idols mind that overseas fans can't speak Korean?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer">
+        <summary><h2 data-i18n="q12_q">Do idols mind that overseas fans can't speak Korean?</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer" data-i18n="q12_a">
           <p>By every account we've seen — no. The opposite, actually. One idol shared on a livestream that when overseas fans try hard to deliver their prepared Korean and run out of time, he finds it so touching that he asks staff to cover the camera after the call ends.</p>
           <p>They see the effort, not the accuracy. Your 90 seconds doesn't need to be perfect Korean. It needs to be yours.</p>
         </div>
@@ -189,15 +215,15 @@
     </div>
 
     <div class="cta-block">
-      <p>Practice your 90 seconds before the day comes.<br><span class="em">We'll be here every time you want to try again.</span></p>
-      <a href="https://talk.kkobi.app/?utm_source=faq&utm_medium=landing" class="btn-primary">Start practicing →</a>
+      <p data-i18n="cta_msg">Practice your 90 seconds before the day comes.<br><span class="em">We'll be here every time you want to try again.</span></p>
+      <a href="https://talk.kkobi.app/?utm_source=faq&utm_medium=landing" class="btn-primary" data-i18n="cta_btn">Start practicing →</a>
     </div>
   </main>
 
   <footer>
     <p>
-      Made with fans, for fans.<br>
-      <a href="/">my90sec.app</a> · <a href="https://talk.kkobi.app">Open the app</a><br>
+      <span data-i18n="footer_made">Made with fans, for fans.</span><br>
+      <a href="/">my90sec.app</a> · <a href="https://talk.kkobi.app" data-i18n="footer_open">Open the app</a><br>
       <a href="mailto:cleex.hq@gmail.com">cleex.hq@gmail.com</a>
     </p>
   </footer>
@@ -221,6 +247,197 @@
       {"@type":"Question","name":"Do idols mind that overseas fans can't speak Korean?","acceptedAnswer":{"@type":"Answer","text":"By every account we've seen — no. The opposite, actually. They see the effort, not the accuracy. Your 90 seconds doesn't need to be perfect Korean. It needs to be yours."}}
     ]
   }
+  </script>
+
+  <script>
+    const i18n = {
+      en: {
+        nav_cta: "Try free →",
+        page_label: "Fansign video call FAQ",
+        page_title: "Everything fans ask<br><span class=\"amber\">before the call.</span>",
+        page_sub: "Real answers from fans who've been there. What to say in Korean, how to handle the nerves, what happens on the day — and how to walk away without wishing.",
+        q1_q: "I just won a video call fansign and I'm panicking. What do I do first?",
+        q1_a: "<p>First — congratulations. And yes, the panic is completely normal. Almost every winner describes the same feeling: excitement for about ten seconds, then \"wait, what do I actually say?\"</p><p>Here's a simple order that works: (1) Check your event details — date, time zone, and the app the call will use. (2) Decide on 2–3 things you genuinely want to say, not ten. (3) Practice saying them out loud before the day comes. That last step is the one most fans skip — and the one that changes everything.</p>",
+        q2_q: "I barely speak Korean. Can I still do a fancall?",
+        q2_a: "<p>Yes. At overseas fansign events, fans who don't speak Korean are the majority, not the exception — one fan who attended a European fansign put it simply: \"most winners didn't speak Korean, we were all super nervous as well.\"</p><p>Idols know this. They're used to it. A short genuine sentence in simple Korean lands better than a long perfect one — and smiling through a mistake is a completely valid strategy. You need a few lines you're comfortable with, not a whole language.</p>",
+        q3_q: "What should I actually say during my 90 seconds?",
+        q3_a: "<p>The structure that works for most fans: a greeting, one main thing you came to say, one short question or reaction, and a goodbye. That's it — four beats.</p><p>Keep each line short enough to say in one breath. <span class=\"kr\">\"오늘 너무 행복해요\"</span> (I'm so happy today) beats a three-clause sentence you'll trip over. And prepare one flexible reaction like <span class=\"kr\">\"진짜요?\"</span> (really?) for whatever they say back — the call is a conversation, not a speech.</p><p>If you want to rehearse the whole 90 seconds — including how you'll react when they answer — that's exactly what we built our practice call for.</p>",
+        q4_q: "I'm scared I'll freeze the moment the call connects. How do I prepare for that?",
+        q4_a: "<p>Freezing doesn't mean you're unprepared — it usually means you care a lot. Fans who've done multiple calls say the nerves never fully disappear; they just get more manageable each time.</p><p>Two things help most: practicing out loud, not in your head — your mouth needs the rehearsal more than your brain does. And having your first line so ready that it comes out automatically. Once the first sentence lands, the rest tends to follow.</p>",
+        q5_q: "Is it okay to read from a script?",
+        q5_a: "<p>You can, but there are two honest downsides. Machine-translated scripts often sound unnatural — fans have described rewriting a friend's Google-translated script minutes before a call because it read so awkwardly. And reading while on camera splits your attention, so you miss the moment you paid for.</p><p>A better middle ground: write your lines, then practice them until you only need a one-word memo per line. You keep the safety net without spending your 90 seconds looking down.</p>",
+        q6_q: "How long is a fancall, really? It feels like it ends instantly.",
+        q6_a: "<p>Most video call events give you somewhere between 60 seconds and 3 minutes, depending on how many items you purchased and the event's rules. And yes — whatever the number is, it will feel shorter.</p><p>The fans who walk away satisfied usually aren't the ones who said the most. They're the ones who decided in advance what mattered most and said that first. Front-load what you came to say; treat everything after as a bonus.</p>",
+        q7_q: "What if I don't understand what my idol says back?",
+        q7_a: "<p>This happens constantly, and it's okay. A few fans' favorite recovery lines: <span class=\"kr\">\"다시 한번 말해주세요\"</span> (please say that once more), or simply reacting with warmth — a laugh, <span class=\"kr\">\"진짜요?\"</span>, a hand on your heart — keeps the moment alive even when the words don't land.</p><p>One thing to know in advance: staff usually won't translate mid-call. So it helps to practice <em>hearing</em> simple Korean, not just saying it. Listening is half the call.</p>",
+        q8_q: "What happens if the call drops or the connection is bad?",
+        q8_a: "<p>Technical issues are more common than you'd think — frozen screens, audio delays, calls cutting out. If it happens: don't panic and don't hang up. Message the event staff immediately (keep that chat window ready before the call). Many events will reconnect you or adjust your time.</p><p>Before the day: use Wi-Fi you trust, close every other app, and do one test call with a friend on the same app if you can.</p>",
+        q9_q: "What's the waiting process like before the call? I heard there's a test call.",
+        q9_a: "<p>Most events run a test call (checking your camera, audio, and identity) before the real one — often 30–60 minutes earlier. Then you wait for staff to call you when it's your turn.</p><p>Fair warning from fans who've been through it: the waiting room is often the most stressful part — some say it's worse than the call itself. Have water nearby, keep your notes in view, and remember the hard part ends the second you see their face.</p>",
+        q10_q: "Can I record my fancall?",
+        q10_a: "<p>It depends entirely on the event. Some officially provide a recording afterward, some allow self-recording, and some prohibit it. Check your event notice — and if it's unclear, ask staff during the test call.</p><p>If recording is allowed, set it up before the waiting room, not during. More than a few fans have lost their only copy of the call to a recording button that never got pressed.</p>",
+        q11_q: "How do I know if a winner notification is real or a scam?",
+        q11_a: "<p>Sadly, fake \"winner\" messages exist. Real notifications come from the platform you actually purchased on, reference your real order, and never ask you to download an unfamiliar app or send a photo of your passport/ID through chat to \"verify\" you before the event.</p><p>Red flags fans have reported: unexpected contact through WeChat or personal DMs, urgent \"confirm within hours\" pressure, and ID photo requests. When in doubt, contact the store's official support directly — never through the link in the suspicious message.</p>",
+        q12_q: "Do idols mind that overseas fans can't speak Korean?",
+        q12_a: "<p>By every account we've seen — no. The opposite, actually. One idol shared on a livestream that when overseas fans try hard to deliver their prepared Korean and run out of time, he finds it so touching that he asks staff to cover the camera after the call ends.</p><p>They see the effort, not the accuracy. Your 90 seconds doesn't need to be perfect Korean. It needs to be yours.</p>",
+        cta_msg: "Practice your 90 seconds before the day comes.<br><span class=\"em\">We'll be here every time you want to try again.</span>",
+        cta_btn: "Start practicing →",
+        footer_made: "Made with fans, for fans.",
+        footer_open: "Open the app"
+      },
+      ko: {
+        nav_cta: "무료로 시작 →",
+        page_label: "영통팬싸 FAQ",
+        page_title: "팬들이 통화 전에<br><span class=\"amber\">가장 많이 묻는 것들.</span>",
+        page_sub: "그 자리에 서 봤던 팬들의 진짜 답변이에요. 한국어로 무슨 말을 할지, 떨림을 어떻게 다룰지, 당일에 무슨 일이 벌어지는지. 그리고 아쉬움 없이 돌아서는 법까지.",
+        q1_q: "영통팬싸에 당첨됐는데 너무 긴장돼요. 뭐부터 해야 하죠?",
+        q1_a: "<p>먼저 축하드려요. 그리고 그 긴장감은 완전히 정상이에요. 거의 모든 당첨자가 똑같이 말해요. 10초쯤 신나다가 곧바로 '근데 무슨 말을 해야 하지?'로 바뀐다고요.</p><p>이렇게 순서대로 해보세요. (1) 이벤트 정보 확인하기 — 날짜와 시차, 통화에 쓸 앱. (2) 진짜 하고 싶은 말 2~3개만 정하기. 열 개가 아니라요. (3) 그 말들을 당일 전에 소리 내어 연습하기. 이 마지막 단계를 대부분의 팬이 건너뛰는데, 사실 이게 모든 걸 바꿔놓는 단계예요.</p>",
+        q2_q: "한국어를 거의 못 해요. 그래도 영통팬싸 할 수 있나요?",
+        q2_a: "<p>네, 할 수 있어요. 해외 팬사인회에서는 한국어를 못 하는 팬이 예외가 아니라 다수예요. 유럽 팬싸에 참여했던 한 팬은 이렇게 말했어요. '당첨자 대부분이 한국어를 못 했고 우리 모두 엄청 긴장했었어요.'</p><p>아이돌도 이걸 알고 있어요. 이미 익숙해요. 완벽하게 긴 문장보다 짧고 진심 어린 한국어 한마디가 더 잘 전달돼요. 실수해도 웃으며 넘기는 것도 충분히 좋은 전략이에요. 언어 전체가 아니라 편하게 말할 수 있는 몇 문장이면 돼요.</p>",
+        q3_q: "90초 동안 실제로 무슨 말을 해야 하나요?",
+        q3_a: "<p>대부분의 팬에게 잘 맞는 구조는 이래요. 인사, 가장 하고 싶은 말 하나, 짧은 질문이나 리액션 하나, 그리고 작별 인사. 딱 네 박자예요.</p><p>각 문장은 한 호흡에 말할 수 있을 만큼 짧게 유지하세요. <span class=\"kr\">'오늘 너무 행복해요'</span> 한마디가 세 절짜리 긴 문장보다 나아요. 그리고 상대가 뭐라고 답하든 쓸 수 있는 유연한 반응 하나를 준비하세요. <span class=\"kr\">'진짜요?'</span> 같은 거요. 통화는 연설이 아니라 대화니까요.</p><p>상대의 답변에 어떻게 반응할지까지 포함해서 90초 전체를 연습해보고 싶다면, 저희가 만든 연습 통화가 바로 그걸 위한 거예요.</p>",
+        q4_q: "통화가 연결되는 순간 얼어붙을까 봐 무서워요. 어떻게 준비해야 하나요?",
+        q4_a: "<p>얼어붙는다는 건 준비가 안 됐다는 뜻이 아니라 그만큼 마음을 많이 쓴다는 뜻이에요. 여러 번 통화를 해본 팬들도 긴장이 완전히 사라지지는 않는대요. 다만 매번 조금씩 더 다룰 만해질 뿐이죠.</p><p>가장 도움 되는 건 두 가지예요. 머릿속으로만 말고 소리 내어 연습하기. 입도 뇌만큼 연습이 필요하거든요. 그리고 첫마디가 자동으로 나올 만큼 준비해두기. 첫 문장이 나오면 나머지는 대체로 따라와요.</p>",
+        q5_q: "대본을 보면서 읽어도 괜찮을까요?",
+        q5_a: "<p>가능은 하지만 솔직히 단점이 두 가지 있어요. 번역기로 만든 대본은 종종 어색하게 들려요. 통화 몇 분 전에 친구가 구글 번역한 대본이 너무 어색해서 다시 썼다는 팬 이야기도 있어요. 그리고 카메라 앞에서 읽으면 집중이 분산돼서, 정작 그 값비싼 순간을 놓치게 돼요.</p><p>더 나은 방법은 대사를 써놓고 한 단어짜리 메모만 봐도 될 만큼 연습하는 거예요. 안전장치는 유지하면서 90초 내내 아래만 보는 건 피할 수 있어요.</p>",
+        q6_q: "영통팬싸는 진짜 몇 초예요? 순식간에 끝나는 느낌이던데요.",
+        q6_a: "<p>대부분의 영통 이벤트는 60초에서 3분 사이예요. 구매한 항목 수와 이벤트 규정에 따라 달라져요. 그리고 맞아요, 시간이 얼마든 실제보다 짧게 느껴질 거예요.</p><p>만족하며 돌아서는 팬들은 대개 가장 많은 말을 한 팬이 아니에요. 미리 가장 중요한 걸 정해두고 그걸 먼저 말한 팬들이에요. 하고 싶은 말을 앞쪽에 배치하고, 그 뒤는 보너스라고 생각하세요.</p>",
+        q7_q: "최애가 하는 말을 못 알아들으면 어떡하죠?",
+        q7_a: "<p>이런 일은 항상 일어나고 괜찮아요. 팬들이 좋아하는 대처 문장은 <span class=\"kr\">'다시 한번 말해주세요'</span>예요. 아니면 그냥 웃거나 <span class=\"kr\">'진짜요?'</span>라고 하거나 손을 가슴에 얹는 것만으로도 말이 안 통해도 그 순간을 이어갈 수 있어요.</p><p>미리 알아두면 좋은 것 하나. 스태프가 통화 중간에 통역해주는 경우는 보통 없어요. 그래서 말하는 연습만큼 간단한 한국어를 듣는 연습도 중요해요. 듣기가 통화의 절반이에요.</p>",
+        q8_q: "통화가 끊기거나 연결이 안 좋으면 어떻게 되나요?",
+        q8_a: "<p>기술적 문제는 생각보다 흔해요. 화면이 멈추거나 소리가 밀리거나 아예 끊기기도 해요. 그럴 때는 당황하지 말고 통화를 끊지 마세요. 바로 이벤트 스태프에게 메시지를 보내세요 (통화 전에 그 채팅창을 미리 열어두세요). 많은 이벤트가 재연결해주거나 시간을 조정해줘요.</p><p>당일 전에 준비할 것. 믿을 수 있는 와이파이를 쓰고, 다른 앱은 다 닫고, 가능하면 같은 앱으로 친구와 테스트 통화를 한번 해보세요.</p>",
+        q9_q: "통화 전 대기 과정은 어떤가요? 테스트 콜이 있다고 들었어요.",
+        q9_a: "<p>대부분의 이벤트는 실제 통화 전에 테스트 콜(카메라, 오디오, 본인 확인)을 진행해요. 보통 30~60분 전이에요. 그다음엔 순서가 될 때까지 스태프의 연락을 기다려요.</p><p>미리 알려드리면, 대기 시간이 통화 자체보다 더 스트레스라고 말하는 팬들이 많아요. 물을 가까이 두고 메모를 눈에 보이게 놓아두세요. 그리고 힘든 부분은 상대의 얼굴을 보는 순간 끝난다는 걸 기억하세요.</p>",
+        q10_q: "영통팬싸를 녹화해도 되나요?",
+        q10_a: "<p>전적으로 이벤트마다 달라요. 어떤 곳은 공식적으로 녹화본을 제공하고, 어떤 곳은 셀프 녹화를 허용하고, 어떤 곳은 금지해요. 이벤트 공지를 확인하고, 불명확하면 테스트 콜 때 스태프에게 물어보세요.</p><p>녹화가 허용된다면 대기실에 들어가기 전에 미리 설정해두세요. 녹화 버튼을 누르지 못해서 유일한 통화 기록을 잃어버린 팬들이 꽤 많아요.</p>",
+        q11_q: "당첨 안내가 진짜인지 스캠인지 어떻게 구분하나요?",
+        q11_a: "<p>안타깝지만 가짜 '당첨' 메시지가 실제로 존재해요. 진짜 안내는 실제로 구매한 플랫폼에서 오고, 실제 주문 내역을 언급하며, 낯선 앱을 설치하거나 여권/신분증 사진을 채팅으로 보내라고 하지 않아요.</p><p>팬들이 신고한 위험 신호들이에요. 위챗이나 개인 DM으로 갑자기 연락 오는 것, '몇 시간 안에 확인하라'는 급박한 압박, 신분증 사진 요구. 의심스러우면 그 메시지 안 링크가 아니라 판매처의 공식 고객센터로 직접 연락하세요.</p>",
+        q12_q: "해외 팬이 한국어를 못 해도 아이돌이 신경 쓸까요?",
+        q12_a: "<p>저희가 본 모든 사례에서는 전혀 아니었어요. 오히려 반대예요. 한 아이돌은 라이브 방송에서, 해외 팬들이 준비한 한국어를 열심히 전하다가 시간이 부족해지면 너무 감동해서 통화 끝나고 스태프에게 카메라를 가려달라고 한다고 말했어요.</p><p>아이돌은 정확도가 아니라 그 노력을 봐요. 그 90초는 완벽한 한국어일 필요 없어요. 당신다우면 돼요.</p>",
+        cta_msg: "그날이 오기 전에 90초를 연습해보세요.<br><span class=\"em\">다시 해보고 싶을 때마다 저희가 여기 있을게요.</span>",
+        cta_btn: "연습 시작하기 →",
+        footer_made: "팬과 함께, 팬을 위해",
+        footer_open: "앱 열기"
+      },
+      id: {
+        nav_cta: "Coba gratis →",
+        page_label: "FAQ video call fansign",
+        page_title: "Semua yang fans tanyakan<br><span class=\"amber\">sebelum panggilan.</span>",
+        page_sub: "Jawaban nyata dari fans yang pernah mengalaminya. Apa yang harus dikatakan dalam bahasa Korea, cara mengatasi gugup, apa yang terjadi pada harinya — dan cara pergi tanpa penyesalan.",
+        q1_q: "Aku baru saja menang video call fansign dan aku panik. Apa yang harus kulakukan dulu?",
+        q1_a: "<p>Pertama — selamat. Dan ya, kepanikan itu sangat normal. Hampir semua pemenang menggambarkan perasaan yang sama: bersemangat selama sekitar sepuluh detik, lalu 'tunggu, aku harus bilang apa sebenarnya?'</p><p>Ini urutan sederhana yang berhasil: (1) Periksa detail acara — tanggal, zona waktu, dan aplikasi yang akan digunakan untuk panggilan. (2) Tentukan 2–3 hal yang benar-benar ingin kamu katakan, bukan sepuluh. (3) Berlatih mengucapkannya dengan suara keras sebelum harinya tiba. Langkah terakhir ini yang paling sering dilewatkan fans — dan yang mengubah segalanya.</p>",
+        q2_q: "Aku hampir tidak bisa bahasa Korea. Apakah aku masih bisa melakukan fancall?",
+        q2_a: "<p>Bisa. Di acara fansign luar negeri, fans yang tidak bisa bahasa Korea adalah mayoritas, bukan pengecualian — satu fans yang menghadiri fansign di Eropa berkata sederhana: 'kebanyakan pemenang tidak bisa bahasa Korea, kami semua juga sangat gugup.'</p><p>Idol tahu ini. Mereka sudah terbiasa. Kalimat pendek dan tulus dalam bahasa Korea sederhana lebih berkesan daripada kalimat panjang yang sempurna — dan tersenyum saat membuat kesalahan adalah strategi yang sepenuhnya valid. Kamu butuh beberapa baris yang kamu nyaman mengucapkannya, bukan seluruh bahasa.</p>",
+        q3_q: "Apa yang sebenarnya harus kukatakan selama 90 detikku?",
+        q3_a: "<p>Struktur yang berhasil untuk kebanyakan fans: salam, satu hal utama yang ingin kamu katakan, satu pertanyaan atau reaksi singkat, dan salam perpisahan. Itu saja — empat ketukan.</p><p>Buat setiap baris cukup pendek untuk diucapkan dalam satu tarikan napas. <span class=\"kr\">'오늘 너무 행복해요'</span> (aku sangat bahagia hari ini) lebih baik daripada kalimat tiga klausa yang bikin kamu tersandung. Dan siapkan satu reaksi fleksibel seperti <span class=\"kr\">'진짜요?'</span> (benarkah?) untuk apa pun yang mereka katakan balik — panggilan ini adalah percakapan, bukan pidato.</p><p>Jika kamu ingin melatih seluruh 90 detik — termasuk bagaimana kamu akan bereaksi saat mereka menjawab — itulah tepatnya alasan kami membuat panggilan latihan kami.</p>",
+        q4_q: "Aku takut akan membeku saat panggilan tersambung. Bagaimana aku bersiap untuk itu?",
+        q4_a: "<p>Membeku bukan berarti kamu tidak siap — biasanya itu berarti kamu sangat peduli. Fans yang sudah melakukan banyak panggilan bilang gugup itu tidak pernah benar-benar hilang, hanya semakin bisa dikendalikan setiap kali.</p><p>Dua hal yang paling membantu: berlatih dengan suara keras, bukan dalam kepala — mulutmu butuh latihan lebih dari otakmu. Dan menyiapkan baris pertamamu sampai keluar secara otomatis. Begitu kalimat pertama keluar, sisanya cenderung mengikuti.</p>",
+        q5_q: "Apakah boleh membaca dari naskah?",
+        q5_a: "<p>Boleh, tapi ada dua kekurangan yang jujur. Naskah hasil terjemahan mesin sering terdengar tidak alami — fans pernah menceritakan menulis ulang naskah terjemahan Google milik temannya beberapa menit sebelum panggilan karena terdengar sangat canggung. Dan membaca sambil di depan kamera memecah perhatianmu, jadi kamu melewatkan momen yang sudah kamu bayar mahal.</p><p>Jalan tengah yang lebih baik: tulis kalimatmu, lalu berlatih sampai kamu hanya butuh memo satu kata per baris. Kamu tetap punya jaring pengaman tanpa menghabiskan 90 detikmu menunduk.</p>",
+        q6_q: "Sebenarnya berapa lama fancall itu? Rasanya berakhir sangat cepat.",
+        q6_a: "<p>Kebanyakan acara video call memberimu waktu antara 60 detik sampai 3 menit, tergantung berapa banyak item yang kamu beli dan aturan acaranya. Dan ya — berapa pun angkanya, itu akan terasa lebih singkat.</p><p>Fans yang pulang dengan puas biasanya bukan yang bicara paling banyak. Mereka yang sudah menentukan sebelumnya apa yang paling penting dan mengatakannya duluan. Utamakan apa yang ingin kamu katakan; anggap sisanya sebagai bonus.</p>",
+        q7_q: "Bagaimana jika aku tidak mengerti apa yang idolku katakan balik?",
+        q7_a: "<p>Ini sering terjadi, dan itu tidak apa-apa. Beberapa kalimat penyelamat favorit fans: <span class=\"kr\">'다시 한번 말해주세요'</span> (tolong ucapkan sekali lagi), atau cukup bereaksi dengan hangat — tertawa, <span class=\"kr\">'진짜요?'</span>, tangan di dada — tetap menghidupkan momen itu bahkan saat kata-katanya tidak tersampaikan.</p><p>Satu hal yang perlu diketahui: staf biasanya tidak menerjemahkan di tengah panggilan. Jadi ada baiknya berlatih <em>mendengarkan</em> bahasa Korea sederhana, bukan hanya mengucapkannya. Mendengarkan adalah setengah dari panggilan itu.</p>",
+        q8_q: "Apa yang terjadi jika panggilan terputus atau koneksinya buruk?",
+        q8_a: "<p>Masalah teknis lebih umum dari yang kamu kira — layar membeku, audio tertunda, panggilan terputus. Jika itu terjadi: jangan panik dan jangan menutup panggilan. Segera pesan staf acara (siapkan jendela chat itu sebelum panggilan). Banyak acara akan menyambungkan ulang atau menyesuaikan waktumu.</p><p>Sebelum harinya: gunakan Wi-Fi yang kamu percaya, tutup semua aplikasi lain, dan lakukan satu panggilan uji coba dengan teman di aplikasi yang sama jika bisa.</p>",
+        q9_q: "Seperti apa proses menunggu sebelum panggilan? Aku dengar ada test call.",
+        q9_a: "<p>Kebanyakan acara menjalankan test call (memeriksa kamera, audio, dan identitasmu) sebelum yang sesungguhnya — sering kali 30–60 menit lebih awal. Lalu kamu menunggu staf menghubungimu saat giliranmu tiba.</p><p>Peringatan jujur dari fans yang sudah mengalaminya: ruang tunggu sering menjadi bagian paling stres — beberapa bilang lebih berat dari panggilannya sendiri. Siapkan air minum, simpan catatanmu terlihat, dan ingat bagian sulitnya berakhir tepat saat kamu melihat wajah mereka.</p>",
+        q10_q: "Bolehkah aku merekam fancall-ku?",
+        q10_a: "<p>Sepenuhnya tergantung acaranya. Beberapa secara resmi memberikan rekaman setelahnya, beberapa mengizinkan rekaman sendiri, dan beberapa melarangnya. Periksa pemberitahuan acaramu — dan jika tidak jelas, tanyakan staf saat test call.</p><p>Jika rekaman diizinkan, siapkan sebelum masuk ruang tunggu, bukan saat itu juga. Cukup banyak fans kehilangan satu-satunya salinan panggilan mereka karena tombol rekam yang tidak pernah ditekan.</p>",
+        q11_q: "Bagaimana aku tahu apakah notifikasi pemenang itu asli atau penipuan?",
+        q11_a: "<p>Sayangnya, pesan 'pemenang' palsu memang ada. Notifikasi asli datang dari platform tempat kamu benar-benar membeli, merujuk pada pesananmu yang sebenarnya, dan tidak pernah meminta kamu mengunduh aplikasi asing atau mengirim foto paspor/KTP lewat chat untuk 'verifikasi' sebelum acara.</p><p>Tanda bahaya yang dilaporkan fans: kontak tak terduga lewat WeChat atau DM pribadi, tekanan mendesak 'konfirmasi dalam beberapa jam', dan permintaan foto ID. Jika ragu, hubungi langsung dukungan resmi toko — jangan pernah lewat tautan di pesan yang mencurigakan.</p>",
+        q12_q: "Apakah idol keberatan fans luar negeri tidak bisa bahasa Korea?",
+        q12_a: "<p>Dari semua yang pernah kami lihat — tidak sama sekali. Justru sebaliknya. Satu idol pernah berbagi di livestream bahwa saat fans luar negeri berusaha keras menyampaikan bahasa Korea yang sudah mereka siapkan dan kehabisan waktu, dia sangat terharu sampai meminta staf menutup kamera setelah panggilan berakhir.</p><p>Mereka melihat usahanya, bukan ketepatannya. 90 detikmu tidak perlu bahasa Korea yang sempurna. Cukup jadi dirimu.</p>",
+        cta_msg: "Latih 90 detikmu sebelum harinya tiba.<br><span class=\"em\">Kami akan selalu di sini setiap kali kamu ingin mencoba lagi.</span>",
+        cta_btn: "Mulai berlatih →",
+        footer_made: "Dibuat bersama fans, untuk fans.",
+        footer_open: "Buka aplikasi"
+      },
+      pt: {
+        nav_cta: "Experimente grátis →",
+        page_label: "FAQ da video call fansign",
+        page_title: "Tudo que as fãs perguntam<br><span class=\"amber\">antes da chamada.</span>",
+        page_sub: "Respostas reais de fãs que já passaram por isso. O que dizer em coreano, como lidar com o nervosismo, o que acontece no dia — e como sair sem arrependimento.",
+        q1_q: "Acabei de ganhar uma video call fansign e estou entrando em pânico. O que faço primeiro?",
+        q1_a: "<p>Primeiro — parabéns. E sim, o pânico é completamente normal. Quase toda ganhadora descreve o mesmo sentimento: empolgação por uns dez segundos, depois 'espera, o que eu realmente digo?'</p><p>Aqui está uma ordem simples que funciona: (1) Confira os detalhes do evento — data, fuso horário e o app que será usado na chamada. (2) Decida 2–3 coisas que você realmente quer dizer, não dez. (3) Pratique dizê-las em voz alta antes do dia chegar. Esse último passo é o que a maioria das fãs pula — e o que muda tudo.</p>",
+        q2_q: "Eu mal falo coreano. Ainda assim posso fazer uma fancall?",
+        q2_a: "<p>Sim. Em eventos de fansign no exterior, fãs que não falam coreano são a maioria, não a exceção — uma fã que participou de uma fansign na Europa disse de forma simples: 'a maioria das ganhadoras não falava coreano, todas nós estávamos super nervosas também.'</p><p>Os ídolos sabem disso. Estão acostumados. Uma frase curta e genuína em coreano simples cai melhor do que uma frase longa e perfeita — e sorrir diante de um erro é uma estratégia perfeitamente válida. Você precisa de algumas frases com as quais se sinta confortável, não do idioma inteiro.</p>",
+        q3_q: "O que eu deveria realmente dizer durante meus 90 segundos?",
+        q3_a: "<p>A estrutura que funciona para a maioria das fãs: uma saudação, uma coisa principal que você veio dizer, uma pergunta ou reação curta, e uma despedida. Só isso — quatro momentos.</p><p>Mantenha cada frase curta o suficiente para dizer em uma respiração. <span class=\"kr\">'오늘 너무 행복해요'</span> (estou tão feliz hoje) vale mais que uma frase de três orações em que você vai tropeçar. E prepare uma reação flexível como <span class=\"kr\">'진짜요?'</span> (sério?) para o que quer que respondam — a chamada é uma conversa, não um discurso.</p><p>Se você quiser ensaiar os 90 segundos inteiros — incluindo como vai reagir quando responderem — foi exatamente para isso que criamos nossa chamada de prática.</p>",
+        q4_q: "Tenho medo de travar no momento em que a chamada conectar. Como me preparo para isso?",
+        q4_a: "<p>Travar não significa que você não está preparada — geralmente significa que você se importa muito. Fãs que já fizeram várias chamadas dizem que o nervosismo nunca desaparece completamente; ele só fica mais controlável a cada vez.</p><p>Duas coisas ajudam mais: praticar em voz alta, não só na cabeça — sua boca precisa do ensaio mais do que seu cérebro. E ter sua primeira frase tão pronta que ela sai automaticamente. Assim que a primeira frase sai, o resto costuma seguir.</p>",
+        q5_q: "Tudo bem ler de um roteiro?",
+        q5_a: "<p>Pode, mas há duas desvantagens honestas. Roteiros traduzidos por máquina costumam soar artificiais — fãs já relataram reescrever o roteiro traduzido pelo Google de uma amiga minutos antes de uma chamada porque soava muito estranho. E ler enquanto está na câmera divide sua atenção, então você perde o momento pelo qual pagou.</p><p>Um meio-termo melhor: escreva suas falas, depois pratique até precisar só de um lembrete de uma palavra por frase. Você mantém a rede de segurança sem passar seus 90 segundos olhando para baixo.</p>",
+        q6_q: "Quanto tempo dura uma fancall, na verdade? Parece que acaba instantaneamente.",
+        q6_a: "<p>A maioria dos eventos de video call dá algo entre 60 segundos e 3 minutos, dependendo de quantos itens você comprou e das regras do evento. E sim — seja qual for o número, vai parecer mais curto.</p><p>As fãs que saem satisfeitas geralmente não são as que disseram mais coisas. São as que decidiram com antecedência o que mais importava e disseram isso primeiro. Priorize o que você veio dizer; trate o resto como um bônus.</p>",
+        q7_q: "E se eu não entender o que meu ídolo responde?",
+        q7_a: "<p>Isso acontece o tempo todo, e tudo bem. Algumas falas de recuperação favoritas das fãs: <span class=\"kr\">'다시 한번 말해주세요'</span> (por favor diga mais uma vez), ou simplesmente reagir com carinho — uma risada, <span class=\"kr\">'진짜요?'</span>, uma mão no coração — mantém o momento vivo mesmo quando as palavras não chegam.</p><p>Uma coisa boa de saber com antecedência: a equipe geralmente não traduz durante a chamada. Então ajuda praticar <em>ouvir</em> coreano simples, não só falar. Ouvir é metade da chamada.</p>",
+        q8_q: "O que acontece se a chamada cair ou a conexão estiver ruim?",
+        q8_a: "<p>Problemas técnicos são mais comuns do que você imagina — tela congelada, atraso de áudio, chamadas caindo. Se isso acontecer: não entre em pânico e não desligue. Mande mensagem para a equipe do evento imediatamente (mantenha essa janela de chat pronta antes da chamada). Muitos eventos vão reconectar você ou ajustar seu tempo.</p><p>Antes do dia: use um Wi-Fi confiável, feche todos os outros apps, e faça uma chamada de teste com uma amiga no mesmo app se possível.</p>",
+        q9_q: "Como é o processo de espera antes da chamada? Ouvi falar de uma test call.",
+        q9_a: "<p>A maioria dos eventos faz uma test call (verificando sua câmera, áudio e identidade) antes da chamada real — geralmente 30–60 minutos antes. Depois você espera a equipe te chamar quando for sua vez.</p><p>Um aviso justo de quem já passou por isso: a sala de espera costuma ser a parte mais estressante — algumas dizem que é pior que a própria chamada. Tenha água por perto, mantenha suas anotações à vista, e lembre-se que a parte difícil termina no segundo em que você vê o rosto dele.</p>",
+        q10_q: "Posso gravar minha fancall?",
+        q10_a: "<p>Depende inteiramente do evento. Alguns fornecem gravação oficialmente depois, alguns permitem autogravação, e alguns proíbem. Confira o aviso do seu evento — e se não estiver claro, pergunte à equipe durante a test call.</p><p>Se a gravação for permitida, configure antes de entrar na sala de espera, não durante. Muitas fãs já perderam sua única cópia da chamada por causa de um botão de gravar que nunca foi apertado.</p>",
+        q11_q: "Como sei se uma notificação de ganhadora é real ou golpe?",
+        q11_a: "<p>Infelizmente, mensagens falsas de 'ganhadora' existem. Notificações reais vêm da plataforma onde você realmente comprou, referenciam seu pedido real, e nunca pedem para você baixar um app desconhecido ou enviar foto do passaporte/RG pelo chat para 'verificação' antes do evento.</p><p>Sinais de alerta relatados por fãs: contato inesperado por WeChat ou DMs pessoais, pressão urgente de 'confirmar em algumas horas', e pedidos de foto de documento. Na dúvida, entre em contato diretamente com o suporte oficial da loja — nunca pelo link da mensagem suspeita.</p>",
+        q12_q: "Os ídolos se importam que fãs do exterior não falem coreano?",
+        q12_a: "<p>Por tudo que já vimos — não, de jeito nenhum. Pelo contrário. Um ídolo compartilhou numa live que, quando fãs do exterior se esforçam para entregar o coreano que prepararam e o tempo acaba, ele se emociona tanto que pede à equipe para cobrir a câmera depois que a chamada termina.</p><p>Eles veem o esforço, não a precisão. Seus 90 segundos não precisam ser coreano perfeito. Precisam ser seus.</p>",
+        cta_msg: "Pratique seus 90 segundos antes do dia chegar.<br><span class=\"em\">Estaremos aqui toda vez que você quiser tentar de novo.</span>",
+        cta_btn: "Comece a praticar →",
+        footer_made: "Feito com fãs, para fãs.",
+        footer_open: "Abrir o app"
+      },
+      fr: {
+        nav_cta: "Essai gratuit →",
+        page_label: "FAQ video call fansign",
+        page_title: "Tout ce que les fans demandent<br><span class=\"amber\">avant l'appel.</span>",
+        page_sub: "Des réponses réelles de fans qui y sont déjà passées. Quoi dire en coréen, comment gérer le stress, ce qui se passe le jour J — et comment repartir sans regrets.",
+        q1_q: "Je viens de gagner une video call fansign et je panique. Que dois-je faire en premier ?",
+        q1_a: "<p>D'abord — félicitations. Et oui, la panique est totalement normale. Presque toutes les gagnantes décrivent le même sentiment : l'excitation pendant une dizaine de secondes, puis 'attends, qu'est-ce que je dis vraiment ?'</p><p>Voici un ordre simple qui fonctionne : (1) Vérifie les détails de l'événement — date, fuseau horaire, et l'application utilisée pour l'appel. (2) Décide de 2 à 3 choses que tu veux vraiment dire, pas dix. (3) Entraîne-toi à les dire à voix haute avant le jour J. Cette dernière étape est celle que la plupart des fans sautent — et celle qui change tout.</p>",
+        q2_q: "Je parle à peine coréen. Est-ce que je peux quand même faire un fancall ?",
+        q2_a: "<p>Oui. Aux fansigns pour fans étrangers, les fans qui ne parlent pas coréen sont la majorité, pas l'exception — une fan qui a assisté à une fansign en Europe l'a dit simplement : 'la plupart des gagnantes ne parlaient pas coréen, on était toutes super stressées aussi.'</p><p>Les idoles le savent. Elles y sont habituées. Une phrase courte et sincère en coréen simple passe mieux qu'une longue phrase parfaite — et sourire malgré une erreur est une stratégie tout à fait valable. Tu as besoin de quelques phrases avec lesquelles tu es à l'aise, pas de toute une langue.</p>",
+        q3_q: "Que devrais-je vraiment dire pendant mes 90 secondes ?",
+        q3_a: "<p>La structure qui fonctionne pour la plupart des fans : une salutation, une chose principale que tu es venue dire, une petite question ou réaction, et un au revoir. C'est tout — quatre temps.</p><p>Garde chaque phrase assez courte pour la dire en une seule respiration. <span class=\"kr\">'오늘 너무 행복해요'</span> (je suis si heureuse aujourd'hui) vaut mieux qu'une phrase à trois propositions où tu vas trébucher. Et prépare une réaction flexible comme <span class=\"kr\">'진짜요?'</span> (vraiment ?) pour ce qu'elle ou il répond — l'appel est une conversation, pas un discours.</p><p>Si tu veux répéter les 90 secondes en entier — y compris comment tu réagiras à sa réponse — c'est exactement pour ça qu'on a créé notre appel d'entraînement.</p>",
+        q4_q: "J'ai peur de me figer au moment où l'appel se connecte. Comment m'y préparer ?",
+        q4_a: "<p>Se figer ne veut pas dire que tu n'es pas prête — ça veut souvent dire que tu tiens beaucoup à ce moment. Les fans qui ont fait plusieurs appels disent que le stress ne disparaît jamais complètement ; il devient juste plus gérable à chaque fois.</p><p>Deux choses aident le plus : s'entraîner à voix haute, pas seulement dans sa tête — ta bouche a besoin de la répétition plus que ton cerveau. Et avoir ta première phrase si prête qu'elle sort automatiquement. Une fois la première phrase lancée, le reste suit généralement.</p>",
+        q5_q: "Est-ce que je peux lire un script ?",
+        q5_a: "<p>Tu peux, mais il y a deux inconvénients honnêtes. Les scripts traduits automatiquement sonnent souvent artificiels — des fans ont raconté avoir réécrit le script Google Traduction d'une amie quelques minutes avant un appel parce qu'il sonnait trop bizarre. Et lire devant la caméra divise ton attention, donc tu rates le moment que tu as payé.</p><p>Un meilleur compromis : écris tes phrases, puis entraîne-toi jusqu'à n'avoir besoin que d'un mot-clé par ligne. Tu gardes le filet de sécurité sans passer tes 90 secondes les yeux baissés.</p>",
+        q6_q: "Combien de temps dure vraiment un fancall ? On dirait que ça finit instantanément.",
+        q6_a: "<p>La plupart des video calls durent entre 60 secondes et 3 minutes, selon le nombre d'articles achetés et les règles de l'événement. Et oui — quel que soit le chiffre, ça paraîtra plus court.</p><p>Les fans qui repartent satisfaites ne sont généralement pas celles qui ont dit le plus de choses. Ce sont celles qui ont décidé à l'avance ce qui comptait le plus et l'ont dit en premier. Priorise ce que tu es venue dire ; considère tout le reste comme un bonus.</p>",
+        q7_q: "Et si je ne comprends pas ce que mon idole me répond ?",
+        q7_a: "<p>Ça arrive tout le temps, et c'est normal. Quelques phrases de secours préférées des fans : <span class=\"kr\">'다시 한번 말해주세요'</span> (redites-le encore une fois s'il vous plaît), ou simplement réagir avec chaleur — un rire, <span class=\"kr\">'진짜요?'</span>, une main sur le cœur — garde le moment vivant même quand les mots ne passent pas.</p><p>Une chose à savoir à l'avance : le staff ne traduit généralement pas pendant l'appel. Alors ça aide de pratiquer à <em>écouter</em> du coréen simple, pas seulement à le parler. Écouter, c'est la moitié de l'appel.</p>",
+        q8_q: "Que se passe-t-il si l'appel coupe ou que la connexion est mauvaise ?",
+        q8_a: "<p>Les problèmes techniques sont plus fréquents qu'on le pense — écran figé, décalage audio, appels coupés. Si ça arrive : ne panique pas et ne raccroche pas. Envoie immédiatement un message au staff (garde cette fenêtre de chat prête avant l'appel). Beaucoup d'événements te reconnecteront ou ajusteront ton temps.</p><p>Avant le jour J : utilise un Wi-Fi de confiance, ferme toutes les autres applications, et fais un appel test avec une amie sur la même application si possible.</p>",
+        q9_q: "Comment se passe l'attente avant l'appel ? J'ai entendu parler d'un appel test.",
+        q9_a: "<p>La plupart des événements font un appel test (vérification de ta caméra, de ton audio et de ton identité) avant le vrai — souvent 30 à 60 minutes plus tôt. Ensuite tu attends que le staff t'appelle quand c'est ton tour.</p><p>Un avertissement honnête de la part de fans qui sont passées par là : la salle d'attente est souvent le moment le plus stressant — certaines disent que c'est pire que l'appel lui-même. Garde de l'eau à portée de main, tes notes bien visibles, et souviens-toi que la partie difficile se termine dès que tu vois son visage.</p>",
+        q10_q: "Est-ce que je peux enregistrer mon fancall ?",
+        q10_a: "<p>Ça dépend entièrement de l'événement. Certains fournissent officiellement un enregistrement après coup, d'autres autorisent l'auto-enregistrement, et d'autres l'interdisent. Vérifie l'annonce de ton événement — et si ce n'est pas clair, demande au staff pendant l'appel test.</p><p>Si l'enregistrement est autorisé, configure-le avant d'entrer dans la salle d'attente, pas pendant. Plus d'une fan a perdu sa seule copie de l'appel à cause d'un bouton d'enregistrement jamais appuyé.</p>",
+        q11_q: "Comment savoir si une notification de gagnante est vraie ou une arnaque ?",
+        q11_a: "<p>Malheureusement, de faux messages de 'gagnante' existent. Les vraies notifications viennent de la plateforme où tu as réellement acheté, font référence à ta vraie commande, et ne te demandent jamais de télécharger une application inconnue ou d'envoyer une photo de ton passeport/pièce d'identité par chat pour te 'vérifier' avant l'événement.</p><p>Signaux d'alerte rapportés par des fans : contact inattendu via WeChat ou messages privés personnels, pression urgente de 'confirmer sous quelques heures', et demandes de photo d'identité. En cas de doute, contacte directement le support officiel de la boutique — jamais via le lien du message suspect.</p>",
+        q12_q: "Est-ce que les idoles sont gênées que les fans étrangères ne parlent pas coréen ?",
+        q12_a: "<p>D'après tout ce qu'on a vu — pas du tout. Bien au contraire. Une idole a raconté en live que lorsque des fans étrangères s'efforcent de dire leur coréen préparé et manquent de temps, il est tellement ému qu'il demande au staff de couvrir la caméra une fois l'appel terminé.</p><p>Elles voient l'effort, pas la précision. Tes 90 secondes n'ont pas besoin d'être un coréen parfait. Elles doivent juste être toi.</p>",
+        cta_msg: "Entraîne-toi pour tes 90 secondes avant que le jour arrive.<br><span class=\"em\">On sera là à chaque fois que tu voudras réessayer.</span>",
+        cta_btn: "Commencer à pratiquer →",
+        footer_made: "Fait avec des fans, pour les fans.",
+        footer_open: "Ouvrir l'app"
+      }
+    };
+
+    let currentLang = 'en';
+    function setLang(lang) {
+      currentLang = lang;
+      const t = i18n[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+      });
+      document.documentElement.lang = lang;
+      document.body.classList.toggle('lang-ko', lang === 'ko');
+    }
+    setLang('en');
   </script>
 </body>
 </html>
